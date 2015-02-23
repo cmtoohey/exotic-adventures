@@ -1,0 +1,14 @@
+﻿<Window x:Class="ExoticAdventures.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window1" Height="480" Width="640" WindowState="Maximized">
+    <Grid>
+        <Canvas HorizontalAlignment="Left" Height="480" Margin="-8,0,0,-30" VerticalAlignment="Top" Width="640">
+            <Image Height="480" Width="640" Source="Jellyfish.jpg"/>
+            <Ellipse x:Name="headCircle1" Fill="#FFF4F4F5" Height="100" Canvas.Left="259" Stroke="Black" Canvas.Top="215" Width="100"/>
+            <Ellipse x:Name="rightCircle1" Fill="#FFF4F4F5" Height="100" Canvas.Left="501" Stroke="Black" Canvas.Top="22" Width="100"/>
+            <Ellipse x:Name="leftCircle1" Fill="#FFF4F4F5" Height="100" Canvas.Left="37" Stroke="Black" Canvas.Top="22" Width="100"/>
+        </Canvas>
+
+    </Grid>
+</Window>
