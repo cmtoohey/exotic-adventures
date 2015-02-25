@@ -43,7 +43,7 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Grid.RenderTransform>
-            <TextBlock x:Name="messageTextBlock" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center">You selected item #14</TextBlock>
+            <TextBlock x:Name="messageTextBlock" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center">Ouch! That Hurts</TextBlock>
         </Grid>
     </Grid>
 </UserControl>

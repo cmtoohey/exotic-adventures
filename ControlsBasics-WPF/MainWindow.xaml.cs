@@ -48,20 +48,24 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             var regionSensorBinding = new Binding("Kinect") { Source = this.sensorChooser };
             BindingOperations.SetBinding(this.kinectRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
 
-            // Clear out placeholder content
-            this.wrapPanel.Children.Clear();
 
-            // Add in display content
-            for (var index = 0; index < 300; ++index)
-            {
-                var button = new KinectTileButton { Label = (index + 1).ToString(CultureInfo.CurrentCulture) };
-                this.wrapPanel.Children.Add(button);
-            }
+            // Clear out placeholder content
+        //    this.wrapPanel.Children.Clear();
+
+
+            //// Add in display content
+            //for (var index = 0; index < 300; ++index)
+            //{
+            //    var button = new KinectTileButton { Label = (index + 1).ToString(CultureInfo.CurrentCulture) };
+            //    this.wrapPanel.Children.Add(button);
+            //}
 
             // Bind listner to scrollviwer scroll position change, and check scroll viewer position
             this.UpdatePagingButtonState();
             scrollViewer.ScrollChanged += (o, e) => this.UpdatePagingButtonState();
         }
+
+ 
 
         /// <summary>
         /// CLR Property Wrappers for PageLeftEnabledProperty
@@ -163,7 +167,23 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         private void KinectTileButtonClick(object sender, RoutedEventArgs e)
         {
             var button = (KinectTileButton)e.OriginalSource;
-            var selectionDisplay = new SelectionDisplay(button.Label as string);
+            Console.WriteLine(button.Label.ToString());
+            string response = "";
+            if(button.Label.Equals("1") || button.Label.Equals("9"))
+            {
+                response = "Don't touch me! I'm a Koala!";
+            }
+            else
+            {
+                response = "Ouch! That hurts!";
+            }
+            //Console.WriteLine((System.Windows.Media.ImageBrush.ImageSourceProperty).ToString());
+
+            //if(this.Background.getValue(System.Windows.Media.ImageBrush.ImageSourceProperty))
+            //{
+
+            //}
+            var selectionDisplay = new SelectionDisplay(response);
             this.kinectRegionGrid.Children.Add(selectionDisplay);
             e.Handled = true;
         }
@@ -196,5 +216,10 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             this.PageLeftEnabled = scrollViewer.HorizontalOffset > ScrollErrorMargin;
             this.PageRightEnabled = scrollViewer.HorizontalOffset < scrollViewer.ScrollableWidth - ScrollErrorMargin;
         }
+
+       
+
+
+       
     }
 }

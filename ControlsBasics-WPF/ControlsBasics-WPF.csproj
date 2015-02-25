@@ -33,6 +33,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(KINECTSDK10_DIR)\Assemblies\Microsoft.Kinect.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Kinect.Toolkit, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Documents\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Kinect.Toolkit.Controls, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Documents\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -102,18 +110,20 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Microsoft.Kinect.Toolkit.Controls\Microsoft.Kinect.Toolkit.Controls.csproj">
-      <Project>{4508C4D1-85BB-4F3F-9E3B-CC93D231C65D}</Project>
-      <Name>Microsoft.Kinect.Toolkit.Controls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Microsoft.Kinect.Toolkit\Microsoft.Kinect.Toolkit.csproj">
-      <Project>{C6F9C31B-6130-4443-A5CC-EF0664552ECD}</Project>
-      <Name>Microsoft.Kinect.Toolkit</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Kinect.ico" />
     <Resource Include="Images\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Koala.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Desert.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Jellyfish.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

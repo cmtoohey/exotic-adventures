@@ -12,11 +12,12 @@
         /// Initializes a new instance of the <see cref="SelectionDisplay"/> class. 
         /// </summary>
         /// <param name="itemId">ID of the item that was selected</param>
-        public SelectionDisplay(string itemId)
+        public SelectionDisplay(string response)
         {
             this.InitializeComponent();
 
-            this.messageTextBlock.Text = string.Format(CultureInfo.CurrentCulture, Properties.Resources.SelectedMessage, itemId);
+            //this.messageTextBlock.Text = string.Format(CultureInfo.CurrentCulture, Properties.Resources.SelectedMessage, "");
+            this.messageTextBlock.Text = response;
         }
 
         /// <summary>

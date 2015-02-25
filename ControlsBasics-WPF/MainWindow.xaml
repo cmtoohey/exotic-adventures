@@ -15,8 +15,8 @@
         MinHeight="700"
         FontFamily="Segoe UI"
         >
-    
-<Window.Resources>
+
+    <Window.Resources>
         <PathGeometry x:Key="ChevronGeometry" x:Shared="False">
             F1M150.001,146.9932L126.565,169.3822L126.565,153.5962L150.001,130.6182L173.435,153.5962L173.435,169.3822z
         </PathGeometry>
@@ -102,7 +102,7 @@
             <Setter Property="Content" Value="{StaticResource ChevronLeft}"/>
         </Style>
     </Window.Resources>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -110,10 +110,14 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0"  Margin="10 0 10 20">
-            <Image HorizontalAlignment="Left" VerticalAlignment="Bottom" Source="Images\Logo.png" Stretch="None" Margin="0 0 0 4"/>
+            <Image HorizontalAlignment="Left" VerticalAlignment="Bottom" Source="logo.jpg" Margin="0 0 0 4" Width="200" Height="100" >
+                <Image.OpacityMask>
+                    <ImageBrush ImageSource="logo.jpg" Stretch="Uniform"/>
+                </Image.OpacityMask>
+            </Image>
             <k:KinectUserViewer k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="100" HorizontalAlignment="Center" VerticalAlignment="Top" />
             <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi" />
-            <TextBlock HorizontalAlignment="Right" Margin="0 0 -1 0" VerticalAlignment="Bottom" Foreground="{StaticResource MediumGreyBrush}" FontSize="18">Controls Basics</TextBlock>
+            <TextBlock HorizontalAlignment="Right" Margin="0 0 -1 0" VerticalAlignment="Bottom" Foreground="{StaticResource MediumGreyBrush}" FontSize="18">α</TextBlock>
         </Grid>
 
         <k:KinectRegion Grid.Row="1" x:Name="kinectRegion">
@@ -125,16 +129,56 @@
                 <k:KinectScrollViewer Grid.Row="0" Name="scrollViewer" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled">
                     <WrapPanel VerticalAlignment="Center" x:Name="wrapPanel" Orientation="Vertical" k:KinectTileButton.Click="KinectTileButtonClick">
                         <!-- items for design layout.  They will be replaced at runtime. -->
-                        <k:KinectTileButton Label="1"/>
-                        <k:KinectTileButton Label="2"/>
-                        <k:KinectTileButton Label="3"/>
-                        <k:KinectTileButton Label="4"/>
-                        <k:KinectTileButton Label="5"/>
-                        <k:KinectTileButton Label="6"/>
-                        <k:KinectTileButton Label="7"/>
-                        <k:KinectTileButton Label="8"/>
-                        <k:KinectTileButton Label="9"/>
-                        <k:KinectTileButton Label="10"/>
+                        <k:KinectTileButton Label="1">
+                            <k:KinectTileButton.Background>
+                                <ImageBrush ImageSource="Koala.jpg"/>
+                            </k:KinectTileButton.Background>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton Label="2">
+                            <k:KinectTileButton.Background>
+                                <ImageBrush ImageSource="Jellyfish.jpg"/>
+                            </k:KinectTileButton.Background>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton Label="3">
+                            <k:KinectTileButton.Background>
+                                <ImageBrush ImageSource="Jellyfish.jpg"/>
+                            </k:KinectTileButton.Background>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton Label="4">
+                            <k:KinectTileButton.Background>
+                                <ImageBrush ImageSource="Jellyfish.jpg"/>
+                            </k:KinectTileButton.Background>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton Label="5">
+                            <k:KinectTileButton.Background>
+                                <ImageBrush ImageSource="Jellyfish.jpg"/>
+                            </k:KinectTileButton.Background>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton Label="6">
+                            <k:KinectTileButton.Background>
+                                <ImageBrush ImageSource="Jellyfish.jpg"/>
+                            </k:KinectTileButton.Background>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton Label="7">
+                            <k:KinectTileButton.Background>
+                                <ImageBrush ImageSource="Jellyfish.jpg"/>
+                            </k:KinectTileButton.Background>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton Label="8">
+                            <k:KinectTileButton.Background>
+                                <ImageBrush ImageSource="Jellyfish.jpg"/>
+                            </k:KinectTileButton.Background>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton Label="9">
+                            <k:KinectTileButton.Background>
+                                <ImageBrush ImageSource="Koala.jpg"/>
+                            </k:KinectTileButton.Background>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton Label="10">
+                            <k:KinectTileButton.Background>
+                                <ImageBrush ImageSource="Jellyfish.jpg"/>
+                            </k:KinectTileButton.Background>
+                        </k:KinectTileButton>
                     </WrapPanel>
                 </k:KinectScrollViewer>
                 <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0, 10, 0, 10">
