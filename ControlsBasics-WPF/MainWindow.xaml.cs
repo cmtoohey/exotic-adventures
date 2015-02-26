@@ -31,6 +31,8 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
 
         private readonly KinectSensorChooser sensorChooser;
 
+        private int count = 0;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class. 
         /// </summary>
@@ -50,15 +52,44 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
 
 
             // Clear out placeholder content
-        //    this.wrapPanel.Children.Clear();
+            this.wrapPanel.Children.Clear();
 
+            
+            // Add in display content
+            for (var index = 0; index < 30; ++index)
+            {
+                if (index % 3 == 0 || index % 4 == 0)
+                {
+                    var button = new KinectTileButton { Name = "Jelly" + (index + 1).ToString(CultureInfo.CurrentCulture) };
+                    //Changes the image background
+                    Uri resourceUri = new Uri("Jellyfish.jpg", UriKind.Relative);
+                    System.Windows.Resources.StreamResourceInfo streamInfo = Application.GetResourceStream(resourceUri);
 
-            //// Add in display content
-            //for (var index = 0; index < 300; ++index)
-            //{
-            //    var button = new KinectTileButton { Label = (index + 1).ToString(CultureInfo.CurrentCulture) };
-            //    this.wrapPanel.Children.Add(button);
-            //}
+                    System.Windows.Media.Imaging.BitmapFrame temp = System.Windows.Media.Imaging.BitmapFrame.Create(streamInfo.Stream);
+                    var brush = new System.Windows.Media.ImageBrush();
+                    brush.ImageSource = temp;
+
+                    button.Background = brush;
+                    // var button = new KinectTileButton { Label = (index + 1).ToString(CultureInfo.CurrentCulture) };
+                    this.wrapPanel.Children.Add(button);
+                }
+                else
+                {
+                     var button = new KinectTileButton { Name = "Shark" + (index + 1).ToString(CultureInfo.CurrentCulture) };
+                    //Changes the image background
+                    Uri resourceUri = new Uri("Shark.jpg", UriKind.Relative);
+                    System.Windows.Resources.StreamResourceInfo streamInfo = Application.GetResourceStream(resourceUri);
+
+                    System.Windows.Media.Imaging.BitmapFrame temp = System.Windows.Media.Imaging.BitmapFrame.Create(streamInfo.Stream);
+                    var brush = new System.Windows.Media.ImageBrush();
+                    brush.ImageSource = temp;
+
+                    button.Background = brush;
+                    // var button = new KinectTileButton { Label = (index + 1).ToString(CultureInfo.CurrentCulture) };
+                    this.wrapPanel.Children.Add(button);
+                    count++;
+                }
+            }
 
             // Bind listner to scrollviwer scroll position change, and check scroll viewer position
             this.UpdatePagingButtonState();
@@ -167,25 +198,29 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         private void KinectTileButtonClick(object sender, RoutedEventArgs e)
         {
             var button = (KinectTileButton)e.OriginalSource;
-            Console.WriteLine(button.Label.ToString());
+            Console.WriteLine(button.Name.ToString());
             string response = "";
-            if(button.Label.Equals("1") || button.Label.Equals("9"))
+            if( button.Name.Contains("Shark"))
             {
-                response = "Don't touch me! I'm a Koala!";
+               // response = "Don't touch me! I'm a Koala!";
+                count--;              
+                button.Background = System.Windows.Media.Brushes.Blue;
+                if (count == 0)
+                {
+                    response = "You have hit all the sharks! You win!!";
+                    var selectionDisplay = new SelectionDisplay(response);
+                    this.kinectRegionGrid.Children.Add(selectionDisplay);
+                    e.Handled = true;
+                }
             }
             else
             {
                 response = "Ouch! That hurts!";
+                var selectionDisplay = new SelectionDisplay(response);
+                this.kinectRegionGrid.Children.Add(selectionDisplay);
+                e.Handled = true;
             }
-            //Console.WriteLine((System.Windows.Media.ImageBrush.ImageSourceProperty).ToString());
-
-            //if(this.Background.getValue(System.Windows.Media.ImageBrush.ImageSourceProperty))
-            //{
-
-            //}
-            var selectionDisplay = new SelectionDisplay(response);
-            this.kinectRegionGrid.Children.Add(selectionDisplay);
-            e.Handled = true;
+           
         }
 
         /// <summary>

@@ -131,7 +131,7 @@
                         <!-- items for design layout.  They will be replaced at runtime. -->
                         <k:KinectTileButton Label="1">
                             <k:KinectTileButton.Background>
-                                <ImageBrush ImageSource="Koala.jpg"/>
+                                <ImageBrush ImageSource="Mole.jpg"/>
                             </k:KinectTileButton.Background>
                         </k:KinectTileButton>
                         <k:KinectTileButton Label="2">
@@ -171,7 +171,7 @@
                         </k:KinectTileButton>
                         <k:KinectTileButton Label="9">
                             <k:KinectTileButton.Background>
-                                <ImageBrush ImageSource="Koala.jpg"/>
+                                <ImageBrush ImageSource="Mole.jpg"/>
                             </k:KinectTileButton.Background>
                         </k:KinectTileButton>
                         <k:KinectTileButton Label="10">
