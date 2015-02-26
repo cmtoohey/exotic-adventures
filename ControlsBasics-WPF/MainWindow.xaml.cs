@@ -56,7 +56,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
 
             
             // Add in display content
-            for (var index = 0; index < 30; ++index)
+            for (var index = 0; index < 20; ++index)
             {
                 if (index % 3 == 0 || index % 4 == 0)
                 {
@@ -200,7 +200,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             var button = (KinectTileButton)e.OriginalSource;
             Console.WriteLine(button.Name.ToString());
             string response = "";
-            if( button.Name.Contains("Shark"))
+            if (button.Name.Contains("S") && button.Background != System.Windows.Media.Brushes.Blue)
             {
                // response = "Don't touch me! I'm a Koala!";
                 count--;              
@@ -213,7 +213,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
                     e.Handled = true;
                 }
             }
-            else
+            else if(button.Name.Contains("J"))
             {
                 response = "Ouch! That hurts!";
                 var selectionDisplay = new SelectionDisplay(response);
