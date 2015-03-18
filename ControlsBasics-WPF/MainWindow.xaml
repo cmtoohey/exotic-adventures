@@ -13,7 +13,7 @@
         d:DesignHeight="700"
         MinWidth="500"
         MinHeight="700"
-        FontFamily="Segoe UI"
+        FontFamily="Segoe UI" WindowState="Maximized" ResizeMode="NoResize"
         >
 
     <Window.Resources>
@@ -122,75 +122,8 @@
         </Grid>
 
         <k:KinectRegion Grid.Row="1" x:Name="kinectRegion">
-            <Grid x:Name="kinectRegionGrid" Margin="10,20,10,20">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="170" />
-                </Grid.RowDefinitions>
-                <k:KinectScrollViewer Grid.Row="0" Name="scrollViewer" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled">
-                    <WrapPanel VerticalAlignment="Center" x:Name="wrapPanel" Orientation="Vertical" k:KinectTileButton.Click="KinectTileButtonClick">
-                        <!-- items for design layout.  They will be replaced at runtime. -->
-                        <k:KinectTileButton Label="1">
-                            <k:KinectTileButton.Background>
-                                <ImageBrush ImageSource="Mole.jpg"/>
-                            </k:KinectTileButton.Background>
-                        </k:KinectTileButton>
-                        <k:KinectTileButton Label="2">
-                            <k:KinectTileButton.Background>
-                                <ImageBrush ImageSource="Jellyfish.jpg"/>
-                            </k:KinectTileButton.Background>
-                        </k:KinectTileButton>
-                        <k:KinectTileButton Label="3">
-                            <k:KinectTileButton.Background>
-                                <ImageBrush ImageSource="Jellyfish.jpg"/>
-                            </k:KinectTileButton.Background>
-                        </k:KinectTileButton>
-                        <k:KinectTileButton Label="4">
-                            <k:KinectTileButton.Background>
-                                <ImageBrush ImageSource="Jellyfish.jpg"/>
-                            </k:KinectTileButton.Background>
-                        </k:KinectTileButton>
-                        <k:KinectTileButton Label="5">
-                            <k:KinectTileButton.Background>
-                                <ImageBrush ImageSource="Jellyfish.jpg"/>
-                            </k:KinectTileButton.Background>
-                        </k:KinectTileButton>
-                        <k:KinectTileButton Label="6">
-                            <k:KinectTileButton.Background>
-                                <ImageBrush ImageSource="Jellyfish.jpg"/>
-                            </k:KinectTileButton.Background>
-                        </k:KinectTileButton>
-                        <k:KinectTileButton Label="7">
-                            <k:KinectTileButton.Background>
-                                <ImageBrush ImageSource="Jellyfish.jpg"/>
-                            </k:KinectTileButton.Background>
-                        </k:KinectTileButton>
-                        <k:KinectTileButton Label="8">
-                            <k:KinectTileButton.Background>
-                                <ImageBrush ImageSource="Jellyfish.jpg"/>
-                            </k:KinectTileButton.Background>
-                        </k:KinectTileButton>
-                        <k:KinectTileButton Label="9">
-                            <k:KinectTileButton.Background>
-                                <ImageBrush ImageSource="Mole.jpg"/>
-                            </k:KinectTileButton.Background>
-                        </k:KinectTileButton>
-                        <k:KinectTileButton Label="10">
-                            <k:KinectTileButton.Background>
-                                <ImageBrush ImageSource="Jellyfish.jpg"/>
-                            </k:KinectTileButton.Background>
-                        </k:KinectTileButton>
-                    </WrapPanel>
-                </k:KinectScrollViewer>
-                <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0, 10, 0, 10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <local:KinectHoverButton Grid.Column="0" Style="{StaticResource KinectHoverButtonScrollLeftStyle}" Click="PageLeftButtonClick" IsEnabled="{Binding ElementName=ControlsBasicsWindow, Path=PageLeftEnabled}"/>
-                    <local:KinectHoverButton Grid.Column="2" Style="{StaticResource KinectHoverButtonScrollRightStyle}" Click="PageRightButtonClick" IsEnabled="{Binding ElementName=ControlsBasicsWindow, Path=PageRightEnabled}"/>
-                </Grid>
+            <Grid x:Name="kinectRegionGrid" Margin="10,20,10,20" Background="#FF00EEFF">
+               
             </Grid>
         </k:KinectRegion>
     </Grid>

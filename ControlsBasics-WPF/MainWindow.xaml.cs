@@ -13,6 +13,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
     using Microsoft.Kinect;
     using Microsoft.Kinect.Toolkit;
     using Microsoft.Kinect.Toolkit.Controls;
+    using System.Timers;
 
     /// <summary>
     /// Interaction logic for MainWindow
@@ -31,7 +32,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
 
         private readonly KinectSensorChooser sensorChooser;
 
-        private int count = 0;
+     //   private int count = 0;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class. 
@@ -50,54 +51,72 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             var regionSensorBinding = new Binding("Kinect") { Source = this.sensorChooser };
             BindingOperations.SetBinding(this.kinectRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
 
-
             // Clear out placeholder content
-            this.wrapPanel.Children.Clear();
+         //   this.wrapPanel.Children.Clear();
 
+            var r = new Random();
+
+            var button = new KinectTileButton { Name = "Door" };
+            //Changes the image background
+            Uri resourceUri = new Uri("Door.jpg", UriKind.Relative);
+            System.Windows.Resources.StreamResourceInfo streamInfo = Application.GetResourceStream(resourceUri);
+
+            System.Windows.Media.Imaging.BitmapFrame temp = System.Windows.Media.Imaging.BitmapFrame.Create(streamInfo.Stream);
+            var brush = new System.Windows.Media.ImageBrush();
+            brush.ImageSource = temp;
+
+            button.Background = brush;
+            button.Margin = new Thickness(r.Next(0,550), r.Next(0, 220),r.Next(0,550), r.Next(0, 220));
+            button.Click += this.KinectTileButtonClick;
             
-            // Add in display content
-            for (var index = 0; index < 20; ++index)
-            {
-                if (index % 3 == 0 || index % 4 == 0)
-                {
-                    var button = new KinectTileButton { Name = "Jelly" + (index + 1).ToString(CultureInfo.CurrentCulture) };
-                    //Changes the image background
-                    Uri resourceUri = new Uri("Jellyfish.jpg", UriKind.Relative);
-                    System.Windows.Resources.StreamResourceInfo streamInfo = Application.GetResourceStream(resourceUri);
+            this.kinectRegionGrid.Children.Add(button);
+            
+            //// Add in display content
+            //for (var index = 0; index < 8; ++index)
+            //{
+                
+            //    if (index % 3 == 0 || index % 4 == 0)
+            //    {
+            //        var button = new KinectTileButton { Name = "Jelly" + (index + 1).ToString(CultureInfo.CurrentCulture) };
+            //        //Changes the image background
+            //        Uri resourceUri = new Uri("Jellyfish.jpg", UriKind.Relative);
+            //        System.Windows.Resources.StreamResourceInfo streamInfo = Application.GetResourceStream(resourceUri);
 
-                    System.Windows.Media.Imaging.BitmapFrame temp = System.Windows.Media.Imaging.BitmapFrame.Create(streamInfo.Stream);
-                    var brush = new System.Windows.Media.ImageBrush();
-                    brush.ImageSource = temp;
+            //        System.Windows.Media.Imaging.BitmapFrame temp = System.Windows.Media.Imaging.BitmapFrame.Create(streamInfo.Stream);
+            //        var brush = new System.Windows.Media.ImageBrush();
+            //        brush.ImageSource = temp;
 
-                    button.Background = brush;
-                    // var button = new KinectTileButton { Label = (index + 1).ToString(CultureInfo.CurrentCulture) };
-                    this.wrapPanel.Children.Add(button);
-                }
-                else
-                {
-                     var button = new KinectTileButton { Name = "Shark" + (index + 1).ToString(CultureInfo.CurrentCulture) };
-                    //Changes the image background
-                    Uri resourceUri = new Uri("Shark.jpg", UriKind.Relative);
-                    System.Windows.Resources.StreamResourceInfo streamInfo = Application.GetResourceStream(resourceUri);
+            //        button.Background = brush;
+            //        // var button = new KinectTileButton { Label = (index + 1).ToString(CultureInfo.CurrentCulture) };
+            //        this.wrapPanel.Children.Add(button);
+                   
 
-                    System.Windows.Media.Imaging.BitmapFrame temp = System.Windows.Media.Imaging.BitmapFrame.Create(streamInfo.Stream);
-                    var brush = new System.Windows.Media.ImageBrush();
-                    brush.ImageSource = temp;
+            //    }
+            //    else
+            //    {
+            //         var button = new KinectTileButton { Name = "Shark" + (index + 1).ToString(CultureInfo.CurrentCulture) };
+            //        //Changes the image background
+            //        Uri resourceUri = new Uri("Shark.jpg", UriKind.Relative);
+            //        System.Windows.Resources.StreamResourceInfo streamInfo = Application.GetResourceStream(resourceUri);
 
-                    button.Background = brush;
-                    // var button = new KinectTileButton { Label = (index + 1).ToString(CultureInfo.CurrentCulture) };
-                    this.wrapPanel.Children.Add(button);
-                    count++;
-                }
-            }
+            //        System.Windows.Media.Imaging.BitmapFrame temp = System.Windows.Media.Imaging.BitmapFrame.Create(streamInfo.Stream);
+            //        var brush = new System.Windows.Media.ImageBrush();
+            //        brush.ImageSource = temp;
+
+            //        button.Background = brush;
+            //        // var button = new KinectTileButton { Label = (index + 1).ToString(CultureInfo.CurrentCulture) };
+            //        this.wrapPanel.Children.Add(button);
+            //        count++;
+                    
+            //    }
+            //}
 
             // Bind listner to scrollviwer scroll position change, and check scroll viewer position
             this.UpdatePagingButtonState();
-            scrollViewer.ScrollChanged += (o, e) => this.UpdatePagingButtonState();
+            //scrollViewer.ScrollChanged += (o, e) => this.UpdatePagingButtonState();
         }
 
- 
-
+     
         /// <summary>
         /// CLR Property Wrappers for PageLeftEnabledProperty
         /// </summary>
@@ -197,29 +216,48 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         /// <param name="e">Event arguments</param>
         private void KinectTileButtonClick(object sender, RoutedEventArgs e)
         {
+            var r = new Random();
             var button = (KinectTileButton)e.OriginalSource;
-            Console.WriteLine(button.Name.ToString());
-            string response = "";
-            if (button.Name.Contains("S") && button.Background != System.Windows.Media.Brushes.Blue)
-            {
-               // response = "Don't touch me! I'm a Koala!";
-                count--;              
-                button.Background = System.Windows.Media.Brushes.Blue;
-                if (count == 0)
-                {
-                    response = "You have hit all the sharks! You win!!";
-                    var selectionDisplay = new SelectionDisplay(response);
-                    this.kinectRegionGrid.Children.Add(selectionDisplay);
-                    e.Handled = true;
-                }
-            }
-            else if(button.Name.Contains("J"))
-            {
-                response = "Ouch! That hurts!";
-                var selectionDisplay = new SelectionDisplay(response);
-                this.kinectRegionGrid.Children.Add(selectionDisplay);
-                e.Handled = true;
-            }
+            double left = r.Next(0, 1174);
+            double top = r.Next(0, 500);
+            double right = 1174 - left;
+            double bottom = 500 - top;
+            button.Margin = new Thickness(left,top,right,bottom);
+            Console.WriteLine("Hello");
+            Console.WriteLine(button.Margin.ToString());
+
+            
+          //  var Display = new SelectionDisplay(button.Margin.ToString());
+          //  this.kinectRegionGrid.Children.Add(Display);
+            //Console.WriteLine(button.Name.ToString());
+            //string response = "";
+          
+            //response = "You win!!";
+            //var Display = new SelectionDisplay(response);
+            //this.kinectRegionGrid.Children.Add(Display);
+            e.Handled = true;
+
+            //if (button.Name.Contains("S") && button.Background != System.Windows.Media.Brushes.Blue)
+            //    //Button is a Shark image
+            //{         
+            //    count--;              
+            //    button.Background = System.Windows.Media.Brushes.Blue;
+            //    if (count == 0)
+            //    {
+            //        response = "You have hit all the sharks! You win!!";
+            //        var selectionDisplay = new SelectionDisplay(response);
+            //        this.kinectRegionGrid.Children.Add(selectionDisplay);
+            //        e.Handled = true;
+            //    }
+            //}
+            //else if(button.Name.Contains("J"))
+            //    //Button is a Jellyfish image
+            //{
+            //    response = "Ouch! That hurts!";
+            //    var selectionDisplay = new SelectionDisplay(response);
+            //    this.kinectRegionGrid.Children.Add(selectionDisplay);
+            //    e.Handled = true;
+            //}
            
         }
 
@@ -230,7 +268,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         /// <param name="e">Event arguments</param>
         private void PageRightButtonClick(object sender, RoutedEventArgs e)
         {
-            scrollViewer.ScrollToHorizontalOffset(scrollViewer.HorizontalOffset + PixelScrollByAmount);
+       //     scrollViewer.ScrollToHorizontalOffset(scrollViewer.HorizontalOffset + PixelScrollByAmount);
         }
 
         /// <summary>
@@ -240,7 +278,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         /// <param name="e">Event arguments</param>
         private void PageLeftButtonClick(object sender, RoutedEventArgs e)
         {
-            scrollViewer.ScrollToHorizontalOffset(scrollViewer.HorizontalOffset - PixelScrollByAmount);
+        //    scrollViewer.ScrollToHorizontalOffset(scrollViewer.HorizontalOffset - PixelScrollByAmount);
         }
 
         /// <summary>
@@ -248,8 +286,8 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         /// </summary>
         private void UpdatePagingButtonState()
         {
-            this.PageLeftEnabled = scrollViewer.HorizontalOffset > ScrollErrorMargin;
-            this.PageRightEnabled = scrollViewer.HorizontalOffset < scrollViewer.ScrollableWidth - ScrollErrorMargin;
+       //     this.PageLeftEnabled = scrollViewer.HorizontalOffset > ScrollErrorMargin;
+         //   this.PageRightEnabled = scrollViewer.HorizontalOffset < scrollViewer.ScrollableWidth - ScrollErrorMargin;
         }
 
        

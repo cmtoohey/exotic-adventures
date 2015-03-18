@@ -46,3 +46,7 @@ C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\M
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\ControlsBasics-WPF.g.resources
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\Microsoft.Samples.Kinect.ControlsBasics.Properties.Resources.resources
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\ControlsBasics-WPF.csproj.GenerateResource.Cache
+C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\ControlsBasics-WPF.exe.manifest
+C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\ControlsBasics-WPF.application
+C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\ControlsBasics-WPF.exe.manifest
+C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\ControlsBasics-WPF.application
