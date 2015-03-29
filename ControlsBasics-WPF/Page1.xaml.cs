@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Microsoft.Kinect;
 using Microsoft.Kinect.Toolkit;
 using Microsoft.Kinect.Toolkit.Controls;
+using System.Timers;
 
 namespace Microsoft.Samples.Kinect.ControlsBasics
 {
@@ -35,7 +36,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         //private readonly KinectSensorChooser sensorChooser;
 
         //   private int count = 0;
-        private System.Media.SoundPlayer startSound = new System.Media.SoundPlayer(@"C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\Moo.wav");
+        private System.Media.SoundPlayer startSound = new System.Media.SoundPlayer(@"C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\Moo.wav");
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class. 
@@ -80,46 +81,6 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             this.kinectRegionGrid.Children.Add(button);
                    
             
-            //// Add in display content
-            //for (var index = 0; index < 8; ++index)
-            //{
-                
-            //    if (index % 3 == 0 || index % 4 == 0)
-            //    {
-            //        var button = new KinectTileButton { Name = "Jelly" + (index + 1).ToString(CultureInfo.CurrentCulture) };
-            //        //Changes the image background
-            //        Uri resourceUri = new Uri("Jellyfish.jpg", UriKind.Relative);
-            //        System.Windows.Resources.StreamResourceInfo streamInfo = Application.GetResourceStream(resourceUri);
-
-            //        System.Windows.Media.Imaging.BitmapFrame temp = System.Windows.Media.Imaging.BitmapFrame.Create(streamInfo.Stream);
-            //        var brush = new System.Windows.Media.ImageBrush();
-            //        brush.ImageSource = temp;
-
-            //        button.Background = brush;
-            //        // var button = new KinectTileButton { Label = (index + 1).ToString(CultureInfo.CurrentCulture) };
-            //        this.wrapPanel.Children.Add(button);
-                   
-
-            //    }
-            //    else
-            //    {
-            //         var button = new KinectTileButton { Name = "Shark" + (index + 1).ToString(CultureInfo.CurrentCulture) };
-            //        //Changes the image background
-            //        Uri resourceUri = new Uri("Shark.jpg", UriKind.Relative);
-            //        System.Windows.Resources.StreamResourceInfo streamInfo = Application.GetResourceStream(resourceUri);
-
-            //        System.Windows.Media.Imaging.BitmapFrame temp = System.Windows.Media.Imaging.BitmapFrame.Create(streamInfo.Stream);
-            //        var brush = new System.Windows.Media.ImageBrush();
-            //        brush.ImageSource = temp;
-
-            //        button.Background = brush;
-            //        // var button = new KinectTileButton { Label = (index + 1).ToString(CultureInfo.CurrentCulture) };
-            //        this.wrapPanel.Children.Add(button);
-            //        count++;
-                    
-            //    }
-            //}
-
             // Bind listner to scrollviwer scroll position change, and check scroll viewer position
             this.UpdatePagingButtonState();
             //scrollViewer.ScrollChanged += (o, e) => this.UpdatePagingButtonState();
@@ -225,51 +186,47 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         /// <param name="e">Event arguments</param>
         private void KinectTileButtonClick(object sender, RoutedEventArgs e)
         {
-            var r = new Random();
             var button = (KinectTileButton)e.OriginalSource;
+            //var old_thickness = button.Margin;
+
+
+            //Timer cowTimer = new System.Timers.Timer(2000);
+
+            //Put timer and button in class and then we have to reset the timer when necessary
+
+            //var flippedCow = new KinectTileButton { Name = "flippedCow" };
+            ////Changes the image background
+            //Uri resourceUri = new Uri("Door.jpg", UriKind.Relative);
+            //System.Windows.Resources.StreamResourceInfo streamInfo2 = Application.GetResourceStream(resourceUri);
+
+            //System.Windows.Media.Imaging.BitmapFrame temp2 = System.Windows.Media.Imaging.BitmapFrame.Create(streamInfo2.Stream);
+            //var brush2 = new System.Windows.Media.ImageBrush();
+            //brush2.ImageSource = temp2;
+
+            //flippedCow.Background = brush2;
+            //flippedCow.Margin = button.Margin;
+
+            //this.kinectRegionGrid.Children.Add(flippedCow);
+
+
+            //cowTimer.Elapsed += (cowSender, cowE) => MyElapsedMethod(sender, cowE, flippedCow);
+            ////cowTimer.Elapsed += this.kinectRegionGrid.Children.Remove(flippedCow);
+            //cowTimer.Enabled = true;
+            
+
+            var r = new Random();
             double left = r.Next(0, 1100);
             double top = r.Next(0, 480);
             double right = 1100 - left;
             double bottom = 480 - top;
-            button.Margin = new Thickness(left,top,right,bottom);
-            Console.WriteLine("Hello");
-            Console.WriteLine(button.Margin.ToString());
+            button.Margin = new Thickness(left, top, right, bottom);
 
             startSound.Play();
-
-            
-          //  var Display = new SelectionDisplay(button.Margin.ToString());
-          //  this.kinectRegionGrid.Children.Add(Display);
-            //Console.WriteLine(button.Name.ToString());
-            //string response = "";
-          
-            //response = "You win!!";
-            //var Display = new SelectionDisplay(response);
-            //this.kinectRegionGrid.Children.Add(Display);
             e.Handled = true;
+        }
 
-            //if (button.Name.Contains("S") && button.Background != System.Windows.Media.Brushes.Blue)
-            //    //Button is a Shark image
-            //{         
-            //    count--;              
-            //    button.Background = System.Windows.Media.Brushes.Blue;
-            //    if (count == 0)
-            //    {
-            //        response = "You have hit all the sharks! You win!!";
-            //        var selectionDisplay = new SelectionDisplay(response);
-            //        this.kinectRegionGrid.Children.Add(selectionDisplay);
-            //        e.Handled = true;
-            //    }
-            //}
-            //else if(button.Name.Contains("J"))
-            //    //Button is a Jellyfish image
-            //{
-            //    response = "Ouch! That hurts!";
-            //    var selectionDisplay = new SelectionDisplay(response);
-            //    this.kinectRegionGrid.Children.Add(selectionDisplay);
-            //    e.Handled = true;
-            //}
-           
+        private void MyElapsedMethod(object sender, ElapsedEventArgs cowE, KinectTileButton flippedCow) {
+            this.kinectRegionGrid.Children.Remove(flippedCow);
         }
 
         /// <summary>
