@@ -1,0 +1,35 @@
+﻿<Page x:Class="Microsoft.Samples.Kinect.ControlsBasics.MainMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:k="http://schemas.microsoft.com/kinect/2013"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Microsoft.Samples.Kinect.ControlsBasics"
+    Height="673.2" Width="1304.4"   
+	Title="Page">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="map.jpg"/>
+        </Grid.Background>
+       
+            <k:KinectUserViewer k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="100" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi" />
+            <TextBlock HorizontalAlignment="Right" Margin="0 0 -1 0" VerticalAlignment="Bottom" Foreground="{StaticResource MediumGreyBrush}" FontSize="18">α</TextBlock>
+            <TextBlock HorizontalAlignment="Center" Margin="385,45,340,0" TextWrapping="Wrap" Text="Home" VerticalAlignment="Bottom" Height="67" Width="447" FontSize="48" FontFamily="Showcard Gothic" Foreground="#FF0086FF"/>
+        
+
+        <k:KinectRegion  x:Name="kinectRegion">
+            <Grid x:Name="kinectRegionGrid" Margin="0,0,0,0" >
+                <k:KinectTileButton x:Name="PAGE1" Content="PAGE1" Height="488" Canvas.Left="39" Canvas.Top="154" Width="402" Click="PAGE1_Click" Background="#FFF52222" FontSize="48"/>
+            <!--<k:KinectTileButton x:Name="CLOSE" Content="CLOSE" Height="488" Canvas.Left="474" Canvas.Top="154" Width="402" Click="CLOSE_Click" Background="#FFF52222" FontSize="48"/>
+            
+                <k:KinectTileButton x:Name="GAME2" Content="GAME2"  Height="488" Canvas.Left="474" Canvas.Top="154" Width="364" Click="GAME2_Click" Background="#FF17CB6A" FontSize="48"/>
+            <k:KinectTileButton x:Name="GAME3" Content="GAME3" Height="488" Canvas.Left="874"  Canvas.Top="154" Width="349" Click="GAME3_Click" Background="#FFEDE610" FontSize="48"/>-->
+
+            </Grid>
+        </k:KinectRegion>
+    </Grid>
+    
+</Page>
+
