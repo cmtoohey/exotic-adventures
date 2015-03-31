@@ -95,7 +95,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             //kills the sensor
             //this.sensorChooser.KinectChanged -= SensorChooserOnKinectChanged;
             //this.sensorChooser.Stop();
-            (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
+            (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("cowTipMenu.xaml", UriKind.Relative);
         }
 
         //On click closes the application (don't need this/I was just testing)

@@ -94,6 +94,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="cowTipMenu.xaml.cs">
+      <DependentUpon>cowTipMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Generics.cs" />
     <Compile Include="KinectHoverButton.cs" />
     <Compile Include="MainMenu.xaml.cs">
@@ -107,6 +110,10 @@
       <DependentUpon>SelectionDisplay.xaml</DependentUpon>
     </Compile>
     <Page Include="Common\StandardStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="cowTipMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

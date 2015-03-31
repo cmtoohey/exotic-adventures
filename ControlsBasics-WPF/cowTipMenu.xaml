@@ -1,0 +1,35 @@
+﻿<Page x:Class="Microsoft.Samples.Kinect.ControlsBasics.cowTipMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:k="http://schemas.microsoft.com/kinect/2013"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Microsoft.Samples.Kinect.ControlsBasics"
+    Height="673.2" Width="1304.4"   
+	Title="Page">
+
+    <Grid>
+        <!--<Grid.Background>
+            <ImageBrush ImageSource="map.jpg"/>
+        </Grid.Background>-->
+
+        <k:KinectUserViewer k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="100" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi" />
+        <TextBlock HorizontalAlignment="Right" Margin="0 0 -1 0" VerticalAlignment="Bottom" Foreground="{StaticResource MediumGreyBrush}" FontSize="18">α</TextBlock>
+       
+
+        <k:KinectRegion  x:Name="cowMenuRegion" RenderTransformOrigin="0.809,0.55">
+            <Grid x:Name="cowMenuGrid" Margin="0,0,0,0" >
+                <TextBlock HorizontalAlignment="Center" Margin="44,0,77.667,422.333" TextWrapping="Wrap" Text="Welcome to Tip-The-Cow! Cows will appear on the following screen and the objective is to tip (push with either hand) the cows as fast as you can.  Select below the number of cows you'd like tip." VerticalAlignment="Bottom" Height="241" Width="1183" FontSize="42" FontFamily="Showcard Gothic" Foreground="#FF0086FF"/>
+
+                <k:KinectTileButton x:Name="twenty" Content="20" Height="150" Canvas.Left="39" Canvas.Top="154" Width="150" Click="twentyClick" Background="#FFF52222" FontSize="48" Margin="232,256,915.667,271.333" RenderTransformOrigin="-1.089,0.881"/>
+                <k:KinectTileButton x:Name="forty" Content="40" Height="150" Canvas.Left="150" Canvas.Top="154" Width="150" Click="fortyClick" Background="#FFF52222" FontSize="48" Margin="592,256,562.667,267.333" RenderTransformOrigin="-1.162,-1.246"/>
+                <k:KinectTileButton x:Name="sixty" Content="60" Height="150" Canvas.Left="150" Canvas.Top="154" Width="150" Click="sixtyClick" Background="#FFF52222" FontSize="48" Margin="958,256,196.667,267.333" RenderTransformOrigin="-1.162,-1.246"/>
+                <k:KinectTileButton x:Name="goHome" Content="Return Home" Height="120" Canvas.Left="874"  Canvas.Top="154" Width="340" Click="homeClick" Background="#FFEDE610" FontSize="48" Margin="470,466,477.667,92.333" RenderTransformOrigin="0.439,0.562"/>
+
+            </Grid>
+        </k:KinectRegion>
+    </Grid>
+
+</Page>
+

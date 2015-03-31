@@ -190,7 +190,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             //var old_thickness = button.Margin;
 
 
-            //Timer cowTimer = new System.Timers.Timer(2000);
+            Timer cowTimer = new System.Timers.Timer(2000);
 
             //Put timer and button in class and then we have to reset the timer when necessary
 

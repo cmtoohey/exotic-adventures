@@ -48,14 +48,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ControlsBasics-WPF.exe" size="1943552">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ControlsBasics-WPF.exe" size="1948672">
       <assemblyIdentity name="ControlsBasics-WPF" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>R7d7LIZ3P+Z40WAZaLcCdg23iTo=</dsig:DigestValue>
+        <dsig:DigestValue>aHdD9FlXxhnyghIefOKP5OHL+gQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
