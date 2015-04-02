@@ -15,6 +15,7 @@ using Microsoft.Kinect;
 using Microsoft.Kinect.Toolkit;
 using Microsoft.Kinect.Toolkit.Controls;
 using System.Timers;
+using System.Diagnostics;
 
 namespace Microsoft.Samples.Kinect.ControlsBasics
 {
@@ -38,6 +39,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         //   private int count = 0;
         private System.Media.SoundPlayer startSound = new System.Media.SoundPlayer(@"C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\Moo.wav");
         public static int number_of_cows = new int();
+        public Stopwatch sw = new Stopwatch();
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class. 
         /// </summary>
@@ -45,7 +47,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         {
             
             this.InitializeComponent();
-            
+            sw.Start();
             // initialize the sensor chooser and UI
             //this.sensorChooser = new KinectSensorChooser();
             //this.sensorChooser.KinectChanged += SensorChooserOnKinectChanged;
@@ -187,7 +189,8 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         private void KinectTileButtonClick(object sender, RoutedEventArgs e)
         {
             Console.WriteLine(number_of_cows);
-            if (number_of_cows != 0)
+            //The way this will work is it will decrement the number of cows after the new button is made
+            if (number_of_cows != 1)
                 {
                     var button = (KinectTileButton)e.OriginalSource;
                     //var old_thickness = button.Margin;
@@ -219,9 +222,9 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
 
                     var r = new Random();
                     double left = r.Next(0, 1100);
-                    double top = r.Next(0, 480);
+                    double top = r.Next(0, 400);
                     double right = 1100 - left;
-                    double bottom = 480 - top;
+                    double bottom = 400 - top;
                     button.Margin = new Thickness(left, top, right, bottom);
 
                     startSound.Play();
@@ -230,7 +233,12 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
                 }
             else
             {
+                sw.Stop();
                 Console.WriteLine("YOU WIN");
+                TimeSpan ts = sw.Elapsed;
+                Console.WriteLine(ts);
+                cowTipWin.gameStopwatch.Content = ts;
+                (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("cowTipWin.xaml", UriKind.Relative);
             }
         }
 
@@ -278,6 +286,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
 
         private void BackHomeButton_Click(object sender, RoutedEventArgs e)
         {
+            sw.Stop();
             (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("MainMenu.xaml", UriKind.Relative);
         }
 

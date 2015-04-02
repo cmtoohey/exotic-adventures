@@ -122,7 +122,7 @@
             <Grid x:Name="kinectRegionGrid" Margin="0,0,0,0" Background="#FF00EEFF">
             </Grid>
         </Grid>
-       
-    </Grid>
+
+        </Grid>
     </k:KinectRegion>
 </Page>
