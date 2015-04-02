@@ -71,7 +71,6 @@ C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\App.baml
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\MainMenu.g.cs
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\MainWindow.g.cs
-C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\Page1.g.cs
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\SelectionDisplay.g.cs
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\App.g.cs
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\ControlsBasics-WPF_Content.g.cs
@@ -79,7 +78,6 @@ C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\ControlsBasics-WPF_MarkupCompile.cache
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\ControlsBasics-WPF_MarkupCompile.lref
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\MainMenu.baml
-C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\Page1.baml
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\ControlsBasics-WPF.g.resources
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\Microsoft.Samples.Kinect.ControlsBasics.Properties.Resources.resources
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\ControlsBasics-WPF.csproj.GenerateResource.Cache
@@ -89,3 +87,5 @@ C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\cowTipMenu.baml
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\cowTipWin.g.cs
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\cowTipWin.baml
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\Page1.g.cs
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\Page1.baml

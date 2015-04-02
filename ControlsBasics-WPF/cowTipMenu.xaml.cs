@@ -36,8 +36,8 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
 
         private void twentyClick(object sender, RoutedEventArgs e)
         {
-            Page1.number_of_cows = 1;
-            Page1.cowCounter = 1;
+            Page1.number_of_cows = 20;
+            Page1.cowCounter = 20;
             (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
         }
 
