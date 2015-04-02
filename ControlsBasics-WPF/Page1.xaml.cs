@@ -37,7 +37,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
 
         //   private int count = 0;
         private System.Media.SoundPlayer startSound = new System.Media.SoundPlayer(@"C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\Moo.wav");
-
+        public static int number_of_cows = new int();
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class. 
         /// </summary>
@@ -186,43 +186,52 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         /// <param name="e">Event arguments</param>
         private void KinectTileButtonClick(object sender, RoutedEventArgs e)
         {
-            var button = (KinectTileButton)e.OriginalSource;
-            //var old_thickness = button.Margin;
+            Console.WriteLine(number_of_cows);
+            if (number_of_cows != 0)
+                {
+                    var button = (KinectTileButton)e.OriginalSource;
+                    //var old_thickness = button.Margin;
 
 
-            Timer cowTimer = new System.Timers.Timer(2000);
+                    Timer cowTimer = new System.Timers.Timer(2000);
 
-            //Put timer and button in class and then we have to reset the timer when necessary
+                    //Put timer and button in class and then we have to reset the timer when necessary
 
-            //var flippedCow = new KinectTileButton { Name = "flippedCow" };
-            ////Changes the image background
-            //Uri resourceUri = new Uri("Door.jpg", UriKind.Relative);
-            //System.Windows.Resources.StreamResourceInfo streamInfo2 = Application.GetResourceStream(resourceUri);
+                    //var flippedCow = new KinectTileButton { Name = "flippedCow" };
+                    ////Changes the image background
+                    //Uri resourceUri = new Uri("Door.jpg", UriKind.Relative);
+                    //System.Windows.Resources.StreamResourceInfo streamInfo2 = Application.GetResourceStream(resourceUri);
 
-            //System.Windows.Media.Imaging.BitmapFrame temp2 = System.Windows.Media.Imaging.BitmapFrame.Create(streamInfo2.Stream);
-            //var brush2 = new System.Windows.Media.ImageBrush();
-            //brush2.ImageSource = temp2;
+                    //System.Windows.Media.Imaging.BitmapFrame temp2 = System.Windows.Media.Imaging.BitmapFrame.Create(streamInfo2.Stream);
+                    //var brush2 = new System.Windows.Media.ImageBrush();
+                    //brush2.ImageSource = temp2;
 
-            //flippedCow.Background = brush2;
-            //flippedCow.Margin = button.Margin;
+                    //flippedCow.Background = brush2;
+                    //flippedCow.Margin = button.Margin;
 
-            //this.kinectRegionGrid.Children.Add(flippedCow);
+                    //this.kinectRegionGrid.Children.Add(flippedCow);
 
 
-            //cowTimer.Elapsed += (cowSender, cowE) => MyElapsedMethod(sender, cowE, flippedCow);
-            ////cowTimer.Elapsed += this.kinectRegionGrid.Children.Remove(flippedCow);
-            //cowTimer.Enabled = true;
-            
+                    //cowTimer.Elapsed += (cowSender, cowE) => MyElapsedMethod(sender, cowE, flippedCow);
+                    ////cowTimer.Elapsed += this.kinectRegionGrid.Children.Remove(flippedCow);
+                    //cowTimer.Enabled = true;
 
-            var r = new Random();
-            double left = r.Next(0, 1100);
-            double top = r.Next(0, 480);
-            double right = 1100 - left;
-            double bottom = 480 - top;
-            button.Margin = new Thickness(left, top, right, bottom);
 
-            startSound.Play();
-            e.Handled = true;
+                    var r = new Random();
+                    double left = r.Next(0, 1100);
+                    double top = r.Next(0, 480);
+                    double right = 1100 - left;
+                    double bottom = 480 - top;
+                    button.Margin = new Thickness(left, top, right, bottom);
+
+                    startSound.Play();
+                    e.Handled = true;
+                    number_of_cows--;
+                }
+            else
+            {
+                Console.WriteLine("YOU WIN");
+            }
         }
 
         private void MyElapsedMethod(object sender, ElapsedEventArgs cowE, KinectTileButton flippedCow) {
