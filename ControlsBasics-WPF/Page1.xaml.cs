@@ -39,7 +39,9 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         //   private int count = 0;
         private System.Media.SoundPlayer startSound = new System.Media.SoundPlayer(@"C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\Moo.wav");
         public static int number_of_cows = new int();
-        public Stopwatch sw = new Stopwatch();
+        public static int cowCounter = new int();
+        public static Stopwatch sw = new Stopwatch();
+        public static TimeSpan ts = new TimeSpan();
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class. 
         /// </summary>
@@ -190,7 +192,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         {
             Console.WriteLine(number_of_cows);
             //The way this will work is it will decrement the number of cows after the new button is made
-            if (number_of_cows != 1)
+            if (cowCounter != 1)
                 {
                     var button = (KinectTileButton)e.OriginalSource;
                     //var old_thickness = button.Margin;
@@ -229,15 +231,15 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
 
                     startSound.Play();
                     e.Handled = true;
-                    number_of_cows--;
+                    cowCounter--;
                 }
             else
             {
                 sw.Stop();
                 Console.WriteLine("YOU WIN");
-                TimeSpan ts = sw.Elapsed;
+                
+                ts = sw.Elapsed;
                 Console.WriteLine(ts);
-                cowTipWin.gameStopwatch.Content = ts;
                 (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("cowTipWin.xaml", UriKind.Relative);
             }
         }

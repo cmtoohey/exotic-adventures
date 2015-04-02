@@ -36,19 +36,22 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
 
         private void twentyClick(object sender, RoutedEventArgs e)
         {
-            Page1.number_of_cows = 2;
+            Page1.number_of_cows = 1;
+            Page1.cowCounter = 1;
             (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
         }
 
         private void fortyClick(object sender, RoutedEventArgs e)
         {
-            Page1.number_of_cows = 4;
+            Page1.number_of_cows = 40;
+            Page1.cowCounter = 40;
             (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
         }
 
         private void sixtyClick(object sender, RoutedEventArgs e)
         {
-            Page1.number_of_cows = 6;
+            Page1.number_of_cows = 60;
+            Page1.cowCounter = 60;
             (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
         }
 
