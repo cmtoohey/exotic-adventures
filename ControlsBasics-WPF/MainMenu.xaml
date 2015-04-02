@@ -24,8 +24,8 @@
                 <k:KinectTileButton x:Name="PAGE1" Content="Tip-The-Cow" Height="Auto" Canvas.Left="39" Canvas.Top="154" Width="Auto" Click="PAGE1_Click" Background="#FFF52222" FontSize="48" Margin="98,133,902.667,379.333"/>
             <k:KinectTileButton x:Name="CLOSE" Content="CLOSE" Height="Auto" Canvas.Left="474" Canvas.Top="154" Width="Auto" Click="CLOSE_Click" Background="#FFF52222" FontSize="48" RenderTransformOrigin="1.569,0.46" Margin="1107,10,9.667,579.333"/>
             
-                <!--<k:KinectTileButton x:Name="GAME2" Content="GAME2"  Height="488" Canvas.Left="474" Canvas.Top="154" Width="364" Click="GAME2_Click" Background="#FF17CB6A" FontSize="48"/>
-            <k:KinectTileButton x:Name="GAME3" Content="GAME3" Height="488" Canvas.Left="874"  Canvas.Top="154" Width="349" Click="GAME3_Click" Background="#FFEDE610" FontSize="48"/>-->
+            <k:KinectTileButton x:Name="GAME2" Content="GAME2"  Height="Auto" Canvas.Left="474" Canvas.Top="154" Width="Auto" Click="GAME2_Click" Background="#FF17CB6A" FontSize="48" Margin="741,133,275.667,427.333"/>
+            <!--<k:KinectTileButton x:Name="GAME3" Content="GAME3" Height="488" Canvas.Left="874"  Canvas.Top="154" Width="349" Click="GAME3_Click" Background="#FFEDE610" FontSize="48"/>-->
 
             </Grid>
         </k:KinectRegion>

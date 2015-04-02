@@ -22,9 +22,8 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
     /// </summary>
     public partial class cowTipWin : Page
     {
-        public static Label gameStopwatch = new Label();
-        public static Label cowTiming = new Label();
-
+        private Label gameStopwatch = new Label();
+        private Label cowTiming = new Label();
         //constructor for cowTipWin
         public cowTipWin()
         {
@@ -50,8 +49,6 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             gameStopwatch.Content = "You tipped " + Page1.number_of_cows + " cows in\n" + cowTipTime;
             gameStopwatch.FontSize = 55;
             this.cowWinGrid.Children.Add(gameStopwatch);
-
-
 
 
 

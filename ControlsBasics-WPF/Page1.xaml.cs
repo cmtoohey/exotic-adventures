@@ -40,7 +40,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         private System.Media.SoundPlayer startSound = new System.Media.SoundPlayer(@"C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\Moo.wav");
         public static int number_of_cows = new int();
         public static int cowCounter = new int();
-        public static Stopwatch sw = new Stopwatch();
+        private Stopwatch sw = new Stopwatch();
         public static TimeSpan ts = new TimeSpan();
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class. 
@@ -192,7 +192,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         {
             Console.WriteLine(number_of_cows);
             //The way this will work is it will decrement the number of cows after the new button is made
-            if (cowCounter != 1)
+            if (cowCounter > 1)
                 {
                     var button = (KinectTileButton)e.OriginalSource;
                     //var old_thickness = button.Margin;

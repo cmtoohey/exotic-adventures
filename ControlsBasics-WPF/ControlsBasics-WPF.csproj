@@ -104,6 +104,9 @@
     <Compile Include="cowTipWin.xaml.cs">
       <DependentUpon>cowTipWin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="game2Menu.xaml.cs">
+      <DependentUpon>game2Menu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Generics.cs" />
     <Compile Include="KinectHoverButton.cs" />
     <Compile Include="MainMenu.xaml.cs">
@@ -125,6 +128,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="cowTipWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="game2Menu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

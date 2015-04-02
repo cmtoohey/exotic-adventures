@@ -105,10 +105,10 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             Application.Current.Shutdown();
         }
 
-        //private void GAME2_Click(object sender, RoutedEventArgs e)
-        //{
-        //    (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Game2.xaml", UriKind.Relative);
-        //}
+        private void GAME2_Click(object sender, RoutedEventArgs e)
+        {
+            (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("game2Menu.xaml", UriKind.Relative);
+        }
 
         //private void GAME3_Click(object sender, RoutedEventArgs e)
         //{
