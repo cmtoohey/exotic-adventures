@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlsBasics-WPF", "ControlsBasics-WPF.csproj", "{69BB0E72-9FA9-43B7-9673-1BCB6F7F3877}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exotic Adventures", "Exotic Adventures.csproj", "{69BB0E72-9FA9-43B7-9673-1BCB6F7F3877}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Kinect.Toolkit.Controls", "..\Microsoft.Kinect.Toolkit.Controls\Microsoft.Kinect.Toolkit.Controls.csproj", "{4508C4D1-85BB-4F3F-9E3B-CC93D231C65D}"
 EndProject
