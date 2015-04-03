@@ -18,25 +18,20 @@ using Microsoft.Kinect.Toolkit.Controls;
 namespace Microsoft.Samples.Kinect.ControlsBasics
 {
     /// <summary>
-    /// Interaction logic for game2Menu.xaml
+    /// Interaction logic for game2.xaml
     /// </summary>
-    public partial class game2Menu : Page
+    public partial class game2 : Page
     {
-        public game2Menu()
+        public game2()
         {
             InitializeComponent();
             var regionSensorBinding = new Binding("Kinect") { Source = MainMenu.sensorChooser };
-            BindingOperations.SetBinding(this.game2Region, KinectRegion.KinectSensorProperty, regionSensorBinding);
+            BindingOperations.SetBinding(this.game2PlayRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
         }
 
-        private void homeClick(object sender, RoutedEventArgs e)
+        private void BackHomeButton_Click(object sender, RoutedEventArgs e)
         {
             (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("MainMenu.xaml", UriKind.Relative);
-        }
-
-        private void twentyClick(object sender, RoutedEventArgs e)
-        {
-            (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("game2.xaml", UriKind.Relative);
         }
     }
 }

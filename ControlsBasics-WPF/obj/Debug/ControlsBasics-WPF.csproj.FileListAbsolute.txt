@@ -91,3 +91,5 @@ C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\Page1.baml
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\game2Menu.g.cs
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\game2Menu.baml
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\game2.g.cs
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\game2.baml

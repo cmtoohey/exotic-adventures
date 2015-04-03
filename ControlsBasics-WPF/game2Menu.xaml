@@ -6,10 +6,27 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Microsoft.Samples.Kinect.ControlsBasics"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+    Height="673.2" Width="1304.4" 
 	Title="game2Menu">
 
-    <Grid>
+    <Grid x:Name="TopGrid" Grid.Row="0"  Margin="10 0 10 20">
+
+        <k:KinectUserViewer k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="100" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi" />
+        <TextBlock HorizontalAlignment="Right" Margin="0 0 -1 0" VerticalAlignment="Bottom" Foreground="{StaticResource MediumGreyBrush}" FontSize="18">α</TextBlock>
         
+
+        <k:KinectRegion  x:Name="game2Region" RenderTransformOrigin="0.809,0.55">
+            <Grid x:Name="game2Grid" Margin="0,0,0,0" >
+                <TextBlock HorizontalAlignment="Center" Margin="34,-10,270.667,422.333" TextWrapping="Wrap" Text="How To Play Game" VerticalAlignment="Bottom" Height="241" Width="980" FontSize="42" FontFamily="Showcard Gothic" Foreground="#FF0086FF"/>
+
+                <k:KinectTileButton x:Name="twenty" Content="20" Height="150" Canvas.Left="39" Canvas.Top="154" Width="150" Click="twentyClick" Background="#FFF52222" FontSize="48" Margin="232,256,915.667,271.333" RenderTransformOrigin="-1.089,0.881"/>
+                <k:KinectTileButton x:Name="goHome" Content="Return Home" Height="120" Canvas.Left="874"  Canvas.Top="154" Width="340" Click="homeClick" Background="#FFEDE610" FontSize="48" Margin="470,466,477.667,92.333" RenderTransformOrigin="0.439,0.562"/>
+
+            </Grid>
+        </k:KinectRegion>
+
+
     </Grid>
+
 </Page>
