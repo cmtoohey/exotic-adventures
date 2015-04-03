@@ -17,6 +17,7 @@ using Microsoft.Kinect.Toolkit.Controls;
 
 namespace Microsoft.Samples.Kinect.ControlsBasics
 {
+    //hope this works
     /// <summary>
     /// Interaction logic for game2Menu.xaml
     /// </summary>
