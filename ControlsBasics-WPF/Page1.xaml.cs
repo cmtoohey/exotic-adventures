@@ -37,18 +37,20 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         //private readonly KinectSensorChooser sensorChooser;
 
         //   private int count = 0;
-        private System.Media.SoundPlayer startSound = new System.Media.SoundPlayer(@"C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\Moo.wav");
-        public static int number_of_cows = new int();
-        public static int cowCounter = new int();
+        private System.Media.SoundPlayer startSound = new System.Media.SoundPlayer(@"..\Moo.wav");
+        public int number_of_cows = new int();
+        public int cowCounter = new int();
         private Stopwatch sw = new Stopwatch();
         public static TimeSpan ts = new TimeSpan();
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class. 
         /// </summary>
-        public Page1()
+        public Page1(int number_of_cows_, int cowCounter_)
         {
             
             this.InitializeComponent();
+            number_of_cows = number_of_cows_;
+            cowCounter = cowCounter_;
             sw.Start();
             // initialize the sensor chooser and UI
             //this.sensorChooser = new KinectSensorChooser();
@@ -240,7 +242,8 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
                 
                 ts = sw.Elapsed;
                 Console.WriteLine(ts);
-                (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("cowTipWin.xaml", UriKind.Relative);
+                this.NavigationService.Navigate(new cowTipWin(number_of_cows, ts));
+                //(Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
             }
         }
 

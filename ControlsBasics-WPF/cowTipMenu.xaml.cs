@@ -36,23 +36,20 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
 
         private void twentyClick(object sender, RoutedEventArgs e)
         {
-            Page1.number_of_cows = 2;
-            Page1.cowCounter = 2;
-            (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(new Page1(20, 20));
+            //(Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
         }
 
         private void fortyClick(object sender, RoutedEventArgs e)
         {
-            Page1.number_of_cows = 40;
-            Page1.cowCounter = 40;
-            (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(new Page1(40, 40));
+            //(Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
         }
 
         private void sixtyClick(object sender, RoutedEventArgs e)
         {
-            Page1.number_of_cows = 60;
-            Page1.cowCounter = 60;
-            (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(new Page1(60, 60));
+            //(Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
         }
 
         private void homeClick(object sender, RoutedEventArgs e)

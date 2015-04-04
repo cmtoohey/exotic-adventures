@@ -25,7 +25,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         private Label gameStopwatch = new Label();
         private Label cowTiming = new Label();
         //constructor for cowTipWin
-        public cowTipWin()
+        public cowTipWin(int number_of_cows, TimeSpan ts)
         {
             InitializeComponent();
             var regionSensorBinding = new Binding("Kinect") { Source = MainMenu.sensorChooser };
@@ -44,9 +44,9 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             gameStopwatch.Height= 250;
             gameStopwatch.Width = 700;
             string cowTipTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-                    Page1.ts.Hours, Page1.ts.Minutes, Page1.ts.Seconds,
-                    Page1.ts.Milliseconds / 10);
-            gameStopwatch.Content = "You tipped " + Page1.number_of_cows + " cows in\n" + cowTipTime;
+                    ts.Hours, ts.Minutes, ts.Seconds,
+                    ts.Milliseconds / 10);
+            gameStopwatch.Content = "You tipped " + number_of_cows + " cows in\n" + cowTipTime;
             gameStopwatch.FontSize = 55;
             this.cowWinGrid.Children.Add(gameStopwatch);
 
