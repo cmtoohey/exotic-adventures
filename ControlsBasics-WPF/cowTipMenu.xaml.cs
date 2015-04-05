@@ -36,19 +36,19 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
 
         private void twentyClick(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Page1(20, 20));
+            this.NavigationService.Navigate(new Page1(20));
             //(Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
         }
 
         private void fortyClick(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Page1(40, 40));
+            this.NavigationService.Navigate(new Page1(40));
             //(Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
         }
 
         private void sixtyClick(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Page1(60, 60));
+            this.NavigationService.Navigate(new Page1(60));
             //(Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
         }
 

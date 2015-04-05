@@ -38,19 +38,19 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
 
         //   private int count = 0;
         private System.Media.SoundPlayer startSound = new System.Media.SoundPlayer(@"..\Moo.wav");
-        public int number_of_cows = new int();
-        public int cowCounter = new int();
+        private int number_of_cows = new int();
+        private int cowCounter = new int();
         private Stopwatch sw = new Stopwatch();
-        public static TimeSpan ts = new TimeSpan();
+        private TimeSpan ts = new TimeSpan();
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class. 
         /// </summary>
-        public Page1(int number_of_cows_, int cowCounter_)
+        public Page1(int number_of_cows_)
         {
             
             this.InitializeComponent();
             number_of_cows = number_of_cows_;
-            cowCounter = cowCounter_;
+            cowCounter = 0;
             sw.Start();
             // initialize the sensor chooser and UI
             //this.sensorChooser = new KinectSensorChooser();
@@ -193,37 +193,12 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         private void KinectTileButtonClick(object sender, RoutedEventArgs e)
         {
             Console.WriteLine(number_of_cows);
+            cowCounter++;
             //The way this will work is it will decrement the number of cows after the new button is made
-            if (cowCounter > 1)
+            if (cowCounter < number_of_cows)
                 {
                     var button = (KinectTileButton)e.OriginalSource;
                     //var old_thickness = button.Margin;
-
-
-                    Timer cowTimer = new System.Timers.Timer(2000);
-
-                    //Put timer and button in class and then we have to reset the timer when necessary
-
-                    //var flippedCow = new KinectTileButton { Name = "flippedCow" };
-                    ////Changes the image background
-                    //Uri resourceUri = new Uri("Door.jpg", UriKind.Relative);
-                    //System.Windows.Resources.StreamResourceInfo streamInfo2 = Application.GetResourceStream(resourceUri);
-
-                    //System.Windows.Media.Imaging.BitmapFrame temp2 = System.Windows.Media.Imaging.BitmapFrame.Create(streamInfo2.Stream);
-                    //var brush2 = new System.Windows.Media.ImageBrush();
-                    //brush2.ImageSource = temp2;
-
-                    //flippedCow.Background = brush2;
-                    //flippedCow.Margin = button.Margin;
-
-                    //this.kinectRegionGrid.Children.Add(flippedCow);
-
-
-                    //cowTimer.Elapsed += (cowSender, cowE) => MyElapsedMethod(sender, cowE, flippedCow);
-                    ////cowTimer.Elapsed += this.kinectRegionGrid.Children.Remove(flippedCow);
-                    //cowTimer.Enabled = true;
-
-
                     var r = new Random();
                     double left = r.Next(0, 1100);
                     double top = r.Next(0, 400);
@@ -233,7 +208,6 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
 
                     startSound.Play();
                     e.Handled = true;
-                    cowCounter--;
                 }
             else
             {
