@@ -23,14 +23,46 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
     /// </summary>
     public partial class game2 : Page
     {
-        private Skeleton[] skeletonData;
+
+        private const int TimerResolution = 2;  // ms
+        private const int NumIntraFrames = 3;
+        private const int MaxShapes = 80;
+        private const double MaxFramerate = 70;
+        private const double MinFramerate = 15;
+        private const double MinShapeSize = 12;
+        private const double MaxShapeSize = 90;
+        private const double DefaultDropRate = 2.5;
+        private const double DefaultDropSize = 32.0;
+        private const double DefaultDropGravity = 1.0;
+
         private readonly Dictionary<int, Player> players = new Dictionary<int, Player>();
+        //private readonly SoundPlayer popSound = new SoundPlayer();
+        //private readonly SoundPlayer hitSound = new SoundPlayer();
+        //private readonly SoundPlayer squeezeSound = new SoundPlayer();
+        private readonly KinectSensorChooser sensorChooser = new KinectSensorChooser();
+
+        private double dropRate = DefaultDropRate;
+        private double dropSize = DefaultDropSize;
+        private double dropGravity = DefaultDropGravity;
+        private DateTime lastFrameDrawn = DateTime.MinValue;
+        private DateTime predNextFrame = DateTime.MinValue;
+        private double actualFrameTime;
+
+        private Skeleton[] skeletonData;
+
         // Player(s) placement in scene (z collapsed):
         private Rect playerBounds;
         private Rect screenRect;
+
+        private double targetFramerate = MaxFramerate;
+        private int frameCount;
+        private bool runningGameThread;
         private FallingThings myFallingThings;
+        private int playersAlive;
 
+    //    private SpeechRecognizer mySpeechRecognizer;
 
+        
         public static readonly DependencyProperty KinectSensorManagerProperty =
            DependencyProperty.Register(
                "KinectSensorManager",
@@ -40,19 +72,51 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
 
         public game2()
         {
-          //  this.KinectSensorManager = new KinectSensorManager();
-         //   this.KinectSensorManager.KinectSensorChanged += this.KinectSensorChanged;
-         //   this.DataContext = this.KinectSensorManager;
-            
+               this.KinectSensorManager = new KinectSensorManager();
+               this.KinectSensorManager.KinectSensorChanged += this.KinectSensorChanged;
+               this.DataContext = this.KinectSensorManager;
+
             InitializeComponent();
+            this.SensorChooserUI.KinectSensorChooser = sensorChooser;
+            sensorChooser.Start();
             //var regionSensorBinding = new Binding("Kinect") { Source = MainMenu.sensorChooser };
             //BindingOperations.SetBinding(this.game2PlayRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
 
+         //   MainMenu.sensorChooser.KinectChanged -= SensorChooserOnKinectChanged;
+            MainMenu.sensorChooser.Stop();
+
             // Bind the KinectSensor from the sensorChooser to the KinectSensor on the KinectSensorManager
-            var kinectSensorBinding = new Binding("Kinect") { Source = MainMenu.sensorChooser };
+            var kinectSensorBinding = new Binding("Kinect") { Source = this.sensorChooser };
             BindingOperations.SetBinding(this.KinectSensorManager, KinectSensorManager.KinectSensorProperty, kinectSensorBinding);
 
+
+            playfield.ClipToBounds = true;
+
+            this.myFallingThings = new FallingThings(MaxShapes, this.targetFramerate, NumIntraFrames);
+
+            this.UpdatePlayfieldSize();
+
+            this.myFallingThings.SetGravity(this.dropGravity);
+            this.myFallingThings.SetDropRate(this.dropRate);
+            this.myFallingThings.SetSize(this.dropSize);
+        //    this.myFallingThings.SetPolies(PolyType.All);
+        //    this.myFallingThings.SetGameMode(GameMode.Off);
+
+        //    this.popSound.Stream = Properties.Resources.Pop_5;
+        //    this.hitSound.Stream = Properties.Resources.Hit_2;
+        //    this.squeezeSound.Stream = Properties.Resources.Squeeze;
+
+        //    this.popSound.Play();
+
+        //    TimeBeginPeriod(TimerResolution);
+        //    var myGameThread = new Thread(this.GameThread);
+        //    myGameThread.SetApartmentState(ApartmentState.STA);
+        //    myGameThread.Start();
+
+        //    FlyingText.NewFlyingText(this.screenRect.Width / 30, new Point(this.screenRect.Width / 2, this.screenRect.Height / 2), "Shapes!");
+
         }
+
 
         public KinectSensorManager KinectSensorManager
         {
@@ -60,76 +124,76 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             set { SetValue(KinectSensorManagerProperty, value); }
         }
 
-        //#region Kinect discovery + setup
+        #region Kinect discovery + setup
 
-        //private void KinectSensorChanged(object sender, KinectSensorManagerEventArgs<KinectSensor> args)
-        //{
-        //    if (null != args.OldValue)
+        private void KinectSensorChanged(object sender, KinectSensorManagerEventArgs<KinectSensor> args)
+        {
+            if (null != args.OldValue)
+            {
+                this.UninitializeKinectServices(args.OldValue);
+            }
+
+            // Only enable this checkbox if we have a sensor
+            //enableAec.IsEnabled = null != args.NewValue;
+
+            if (null != args.NewValue)
+            {
+                this.InitializeKinectServices(this.KinectSensorManager, args.NewValue);
+            }
+        }
+
+        // Kinect enabled apps should customize which Kinect services it initializes here.
+        private void InitializeKinectServices(KinectSensorManager kinectSensorManager, KinectSensor sensor)
+        {
+            // Application should enable all streams first.
+            kinectSensorManager.ColorFormat = ColorImageFormat.RgbResolution640x480Fps30;
+            kinectSensorManager.ColorStreamEnabled = true;
+
+            sensor.SkeletonFrameReady += this.SkeletonsReady;
+            kinectSensorManager.TransformSmoothParameters = new TransformSmoothParameters
+            {
+                Smoothing = 0.5f,
+                Correction = 0.5f,
+                Prediction = 0.5f,
+                JitterRadius = 0.05f,
+                MaxDeviationRadius = 0.04f
+            };
+            kinectSensorManager.SkeletonStreamEnabled = true;
+            kinectSensorManager.KinectSensorEnabled = true;
+
+            //if (!kinectSensorManager.KinectSensorAppConflict)
+            //{
+            //    // Start speech recognizer after KinectSensor started successfully.
+            //    this.mySpeechRecognizer = SpeechRecognizer.Create();
+
+            //    if (null != this.mySpeechRecognizer)
+            //    {
+            //        this.mySpeechRecognizer.SaidSomething += this.RecognizerSaidSomething;
+            //        this.mySpeechRecognizer.Start(sensor.AudioSource);
+            //    }
+
+            //    enableAec.Visibility = Visibility.Visible;
+            //    this.UpdateEchoCancellation(this.enableAec);
+            //}
+        }
+
+        // Kinect enabled apps should uninitialize all Kinect services that were initialized in InitializeKinectServices() here.
+        private void UninitializeKinectServices(KinectSensor sensor)
+        {
+            sensor.SkeletonFrameReady -= this.SkeletonsReady;
+
+        //    if (null != this.mySpeechRecognizer)
         //    {
-        //        this.UninitializeKinectServices(args.OldValue);
+        //        this.mySpeechRecognizer.Stop();
+        //        this.mySpeechRecognizer.SaidSomething -= this.RecognizerSaidSomething;
+        //        this.mySpeechRecognizer.Dispose();
+        //        this.mySpeechRecognizer = null;
         //    }
 
-        //    // Only enable this checkbox if we have a sensor
-        //    //enableAec.IsEnabled = null != args.NewValue;
+        //    enableAec.Visibility = Visibility.Collapsed;
+        }
 
-        //    if (null != args.NewValue)
-        //    {
-        //        this.InitializeKinectServices(this.KinectSensorManager, args.NewValue);
-        //    }
-        //}
-
-        //// Kinect enabled apps should customize which Kinect services it initializes here.
-        //private void InitializeKinectServices(KinectSensorManager kinectSensorManager, KinectSensor sensor)
-        //{
-        //    // Application should enable all streams first.
-        //    kinectSensorManager.ColorFormat = ColorImageFormat.RgbResolution640x480Fps30;
-        //    kinectSensorManager.ColorStreamEnabled = true;
-
-        //    sensor.SkeletonFrameReady += this.SkeletonsReady;
-        //    kinectSensorManager.TransformSmoothParameters = new TransformSmoothParameters
-        //    {
-        //        Smoothing = 0.5f,
-        //        Correction = 0.5f,
-        //        Prediction = 0.5f,
-        //        JitterRadius = 0.05f,
-        //        MaxDeviationRadius = 0.04f
-        //    };
-        //    kinectSensorManager.SkeletonStreamEnabled = true;
-        //    kinectSensorManager.KinectSensorEnabled = true;
-
-        //    //if (!kinectSensorManager.KinectSensorAppConflict)
-        //    //{
-        //    //    // Start speech recognizer after KinectSensor started successfully.
-        //    //    this.mySpeechRecognizer = SpeechRecognizer.Create();
-
-        //    //    if (null != this.mySpeechRecognizer)
-        //    //    {
-        //    //        this.mySpeechRecognizer.SaidSomething += this.RecognizerSaidSomething;
-        //    //        this.mySpeechRecognizer.Start(sensor.AudioSource);
-        //    //    }
-
-        //    //    enableAec.Visibility = Visibility.Visible;
-        //    //    this.UpdateEchoCancellation(this.enableAec);
-        //    //}
-        //}
-
-        //// Kinect enabled apps should uninitialize all Kinect services that were initialized in InitializeKinectServices() here.
-        //private void UninitializeKinectServices(KinectSensor sensor)
-        //{
-        //    sensor.SkeletonFrameReady -= this.SkeletonsReady;
-
-        ////    if (null != this.mySpeechRecognizer)
-        ////    {
-        ////        this.mySpeechRecognizer.Stop();
-        ////        this.mySpeechRecognizer.SaidSomething -= this.RecognizerSaidSomething;
-        ////        this.mySpeechRecognizer.Dispose();
-        ////        this.mySpeechRecognizer = null;
-        ////    }
-
-        ////    enableAec.Visibility = Visibility.Collapsed;
-        //}
-
-        //#endregion Kinect discovery + setup
+        #endregion Kinect discovery + setup
 
 
         #region Kinect Skeleton processing
@@ -193,16 +257,16 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
                                 player.UpdateBonePosition(skeleton.Joints, JointType.ShoulderCenter, JointType.ShoulderRight);
 
                                 // Legs
-                                player.UpdateBonePosition(skeleton.Joints, JointType.HipLeft, JointType.KneeLeft);
-                                player.UpdateBonePosition(skeleton.Joints, JointType.KneeLeft, JointType.AnkleLeft);
-                                player.UpdateBonePosition(skeleton.Joints, JointType.AnkleLeft, JointType.FootLeft);
+                                //player.UpdateBonePosition(skeleton.Joints, JointType.HipLeft, JointType.KneeLeft);
+                                //player.UpdateBonePosition(skeleton.Joints, JointType.KneeLeft, JointType.AnkleLeft);
+                                //player.UpdateBonePosition(skeleton.Joints, JointType.AnkleLeft, JointType.FootLeft);
 
-                                player.UpdateBonePosition(skeleton.Joints, JointType.HipRight, JointType.KneeRight);
-                                player.UpdateBonePosition(skeleton.Joints, JointType.KneeRight, JointType.AnkleRight);
-                                player.UpdateBonePosition(skeleton.Joints, JointType.AnkleRight, JointType.FootRight);
+                                //player.UpdateBonePosition(skeleton.Joints, JointType.HipRight, JointType.KneeRight);
+                                //player.UpdateBonePosition(skeleton.Joints, JointType.KneeRight, JointType.AnkleRight);
+                                //player.UpdateBonePosition(skeleton.Joints, JointType.AnkleRight, JointType.FootRight);
 
-                                player.UpdateBonePosition(skeleton.Joints, JointType.HipLeft, JointType.HipCenter);
-                                player.UpdateBonePosition(skeleton.Joints, JointType.HipCenter, JointType.HipRight);
+                                //player.UpdateBonePosition(skeleton.Joints, JointType.HipLeft, JointType.HipCenter);
+                                //player.UpdateBonePosition(skeleton.Joints, JointType.HipCenter, JointType.HipRight);
 
                                 // Spine
                                 player.UpdateBonePosition(skeleton.Joints, JointType.HipCenter, JointType.ShoulderCenter);
@@ -215,48 +279,48 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             }
         }
 
-        //private void CheckPlayers()
-        //{
-        //    foreach (var player in this.players)
-        //    {
-        //        if (!player.Value.IsAlive)
-        //        {
-        //            // Player left scene since we aren't tracking it anymore, so remove from dictionary
-        //            this.players.Remove(player.Value.GetId());
-        //            break;
-        //        }
-        //    }
+        private void CheckPlayers()
+        {
+            foreach (var player in this.players)
+            {
+                if (!player.Value.IsAlive)
+                {
+                    // Player left scene since we aren't tracking it anymore, so remove from dictionary
+                    this.players.Remove(player.Value.GetId());
+                    break;
+                }
+            }
 
-        //    // Count alive players
-        //    int alive = this.players.Count(player => player.Value.IsAlive);
+            // Count alive players
+            int alive = this.players.Count(player => player.Value.IsAlive);
 
-        //    if (alive != this.playersAlive)
-        //    {
-        //        if (alive == 2)
-        //        {
-        //            this.myFallingThings.SetGameMode(GameMode.TwoPlayer);
-        //        }
-        //        else if (alive == 1)
-        //        {
-        //            this.myFallingThings.SetGameMode(GameMode.Solo);
-        //        }
-        //        else if (alive == 0)
-        //        {
-        //            this.myFallingThings.SetGameMode(GameMode.Off);
-        //        }
+            if (alive != this.playersAlive)
+            {
+                //if (alive == 2)
+                //{
+                //    this.myFallingThings.SetGameMode(GameMode.TwoPlayer);
+                //}
+                //else if (alive == 1)
+                //{
+                //    this.myFallingThings.SetGameMode(GameMode.Solo);
+                //}
+                //else if (alive == 0)
+                //{
+                //    this.myFallingThings.SetGameMode(GameMode.Off);
+                //}
 
-        //        if ((this.playersAlive == 0) && (this.mySpeechRecognizer != null))
-        //        {
-        //            BannerText.NewBanner(
-        //                Properties.Resources.Vocabulary,
-        //                this.screenRect,
-        //                true,
-        //                System.Windows.Media.Color.FromArgb(200, 255, 255, 255));
-        //        }
+                //if ((this.playersAlive == 0) && (this.mySpeechRecognizer != null))
+                //{
+                //    BannerText.NewBanner(
+                //        Properties.Resources.Vocabulary,
+                //        this.screenRect,
+                //        true,
+                //        System.Windows.Media.Color.FromArgb(200, 255, 255, 255));
+                //}
 
-        //        this.playersAlive = alive;
-        //    }
-        //}
+                this.playersAlive = alive;
+            }
+        }
 
         private void PlayfieldSizeChanged(object sender, SizeChangedEventArgs e)
         {

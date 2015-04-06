@@ -11,16 +11,16 @@
 	Title="Page1">
 
 
-        <Grid>
+    <Grid>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-       <k:KinectRegion x:Name="game2PlayRegion">
-                <Grid x:Name="game2PlayGrid" Grid.Row="0"  Margin="10 0 10 20">
-              
-                    <k:KinectTileButton x:Name="BackHomeButton" Content="Back Home" Height="60" Margin="680,0,0,0" Background="#FF00EEFF" Click="BackHomeButton_Click" ></k:KinectTileButton>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <k:KinectRegion x:Name="game2PlayRegion">
+            <Grid x:Name="game2PlayGrid" Grid.Row="0"  Margin="10 0 10 20">
+
+                <k:KinectTileButton x:Name="BackHomeButton" Content="Back Home" Height="60" Margin="680,0,0,0" Background="#FF00EEFF" Click="BackHomeButton_Click" ></k:KinectTileButton>
                 <Image HorizontalAlignment="Left" VerticalAlignment="Bottom" Source="logo.jpg" Margin="0 0 0 4" Width="200" Height="100" >
                     <Image.OpacityMask>
                         <ImageBrush ImageSource="logo.jpg" Stretch="Uniform"/>
@@ -33,8 +33,8 @@
             </Grid>
         </k:KinectRegion>
 
-            <Grid Grid.Row="1" x:Name="bottomGrid">
-                <Grid x:Name="game2SkeletonGrid" Margin="0,0,0,0" Background="#FF00EEFF">
+        <Grid Grid.Row="1" x:Name="bottomGrid">
+            <Grid x:Name="game2SkeletonGrid" Margin="0,0,0,0" Background="#FF00EEFF">
                 <StackPanel Orientation="Vertical" Background="#FF46BC44">
                     <Grid>
                         <Canvas Margin="0" Name="playfield" Height="688" Width="619">
@@ -46,16 +46,16 @@
                                 </LinearGradientBrush>
                             </Canvas.Background>
                         </Canvas>
-                        <kt:KinectColorViewer Margin="0,10,328,0" HorizontalAlignment="Right" Width="160" Height="120" VerticalAlignment="Top" KinectSensorManager="{Binding}" Background="#FFE4D5D5"/>
-                        <!--<toolkit:KinectSensorChooserUI x:Name="SensorChooserUI" IsListening="True"  HorizontalAlignment="Center" VerticalAlignment="Top" />-->
+                        <kt:KinectColorViewer Margin="0,10,58,0" HorizontalAlignment="Right" Width="160" Height="120" VerticalAlignment="Top" KinectSensorManager="{Binding}" Background="#FFE4D5D5"/>
+                        <k:KinectSensorChooserUI x:Name="SensorChooserUI" IsListening="True"  HorizontalAlignment="Center" VerticalAlignment="Top" />
                     </Grid>
                     <!--<CheckBox x:Name="enableAec" Foreground="White" FontSize="20" Margin="19,0,0,18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Visibility="Collapsed" Checked="EnableAecChecked" Unchecked="EnableAecChecked" IsEnabled="False">
                         Enable Echo Cancellation on Default Speakers
                     </CheckBox>-->
                 </StackPanel>
             </Grid>
-            </Grid>
-
         </Grid>
+
+    </Grid>
 
 </Page>
