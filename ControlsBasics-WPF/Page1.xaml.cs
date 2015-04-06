@@ -50,6 +50,9 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         public TipTheCow(int number_of_cows_)
         {
             this.InitializeComponent();
+            var regionSensorBinding = new Binding("Kinect") { Source = MainMenu.sensorChooser };
+            BindingOperations.SetBinding(this.kinectRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
+
             number_of_cows = number_of_cows_;
             cowCounter = 0;
 
@@ -63,11 +66,6 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             this.TopGrid.Children.Add(tipped_tracker);
             //this.t.Children.Add(tipped_tracker);
             var r = new Random();
-
-            //var backHome = new KinectTileButton { Name = "BackHome", Content = "Back Home", Height = 50, Width = 200 };
-            //backHome.Margin = new Thickness(0,0,1200,580);
-            // backHome.Click += this.BACKHOME_Click;
-            //this.kinectRegionGrid.Children.Add(backHome);
          
             var button = new KinectTileButton { Name = "Cow" };
             //Changes the image background
@@ -76,8 +74,8 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
 
             System.Windows.Media.Imaging.BitmapFrame temp = System.Windows.Media.Imaging.BitmapFrame.Create(streamInfo.Stream);
             var brush = new System.Windows.Media.ImageBrush();
+
             brush.ImageSource = temp;
-            //brush.Opacity = OpacityMask.
 
             button.Background = brush;
             button.Margin = new Thickness(r.Next(0,550), r.Next(0, 220),r.Next(0,550), r.Next(0, 220));

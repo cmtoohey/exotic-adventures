@@ -1,7 +1,3 @@
-C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\ControlsBasics-WPF.exe.manifest
-C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\ControlsBasics-WPF.application
-C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\ControlsBasics-WPF.exe
-C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\ControlsBasics-WPF.pdb
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\Microsoft.Kinect.Toolkit.Interaction.dll
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\Microsoft.Kinect.Toolkit.pdb
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\Microsoft.Kinect.Toolkit.Controls.pdb
@@ -18,20 +14,24 @@ C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\Page1.g.cs
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\SelectionDisplay.g.cs
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\App.g.cs
-C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\ControlsBasics-WPF_Content.g.cs
-C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\ControlsBasics-WPF_MarkupCompile.cache
-C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\ControlsBasics-WPF_MarkupCompile.lref
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\cowTipMenu.baml
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\cowTipWin.baml
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\game2.baml
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\game2Menu.baml
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\MainMenu.baml
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\Page1.baml
-C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\ControlsBasics-WPF.g.resources
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\Microsoft.Samples.Kinect.ControlsBasics.Properties.Resources.resources
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\Exotic Adventures.csproj.GenerateResource.Cache
-C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\ControlsBasics-WPF.exe.manifest
-C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\ControlsBasics-WPF.application
-C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\ControlsBasics-WPF.exe
-C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\ControlsBasics-WPF.pdb
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\exotic_adventures.exe.manifest
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\exotic_adventures.application
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\exotic_adventures.exe
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\exotic_adventures.pdb
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\Exotic Adventures.csprojResolveAssemblyReference.cache
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\exotic_adventures_Content.g.cs
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\exotic_adventures_MarkupCompile.cache
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\exotic_adventures_MarkupCompile.lref
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\exotic_adventures.g.resources
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\exotic_adventures.exe.manifest
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\exotic_adventures.application
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\exotic_adventures.exe
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\exotic_adventures.pdb

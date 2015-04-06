@@ -107,6 +107,11 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("game2Menu.xaml", UriKind.Relative);
         }
 
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
 
     }
 }

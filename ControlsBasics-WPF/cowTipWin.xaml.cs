@@ -15,6 +15,7 @@ using Microsoft.Kinect;
 using Microsoft.Kinect.Toolkit;
 using Microsoft.Kinect.Toolkit.Controls;
 
+
 namespace Microsoft.Samples.Kinect.ControlsBasics
 {
     /// <summary>
@@ -48,6 +49,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
                     ts.Milliseconds / 10);
             gameStopwatch.Content = "You tipped " + number_of_cows + " cows in\n" + cowTipTime;
             gameStopwatch.FontSize = 55;
+            gameStopwatch.Foreground = System.Windows.Media.Brushes.LightBlue;
             this.cowWinGrid.Children.Add(gameStopwatch);
 
 

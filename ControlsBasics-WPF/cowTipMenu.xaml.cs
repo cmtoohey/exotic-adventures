@@ -29,26 +29,21 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             BindingOperations.SetBinding(this.cowMenuRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
         }
 
-        private void instructionsClick(object sender, RoutedEventArgs e)
+        private void smallClick(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void twentyClick(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new TipTheCow(20));
+            this.NavigationService.Navigate(new TipTheCow(int.Parse(this.small.Content.ToString())));
             //(Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
         }
 
-        private void fortyClick(object sender, RoutedEventArgs e)
+        private void mediumClick(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new TipTheCow(40));
+            this.NavigationService.Navigate(new TipTheCow(int.Parse(this.medium.Content.ToString())));
             //(Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
         }
 
-        private void sixtyClick(object sender, RoutedEventArgs e)
+        private void largeClick(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new TipTheCow(60));
+            this.NavigationService.Navigate(new TipTheCow(int.Parse(this.large.Content.ToString())));
             //(Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
         }
 

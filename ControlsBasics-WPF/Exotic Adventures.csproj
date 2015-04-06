@@ -240,7 +240,10 @@
     <Resource Include="Cow.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="World.png" />
     <Resource Include="Images\nice_grass.jpg" />
+    <Resource Include="Cow.bmp" />
+    <Resource Include="Midwest.png" />
     <Content Include="Moo.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

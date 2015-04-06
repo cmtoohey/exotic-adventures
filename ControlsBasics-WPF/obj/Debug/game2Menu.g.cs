@@ -103,7 +103,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ControlsBasics-WPF;component/game2menu.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/exotic_adventures;component/game2menu.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\game2Menu.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
