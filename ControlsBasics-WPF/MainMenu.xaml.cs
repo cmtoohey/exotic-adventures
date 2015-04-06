@@ -23,12 +23,11 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
     public partial class MainMenu : Page
     {
 
-        public static readonly KinectSensorChooser sensorChooser = new KinectSensorChooser();
+        public static KinectSensorChooser sensorChooser = new KinectSensorChooser();
 
         public MainMenu()
         {
             InitializeComponent();
-            //this.sensorChooser = new KinectSensorChooser();
             sensorChooser.KinectChanged += SensorChooserOnKinectChanged;
             sensorChooserUi.KinectSensorChooser = sensorChooser;
             sensorChooser.Start();
@@ -36,7 +35,6 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             // Bind the sensor chooser's current sensor to the KinectRegion
             var regionSensorBinding = new Binding("Kinect") { Source = sensorChooser };
             BindingOperations.SetBinding(this.kinectRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
-
         }
 
         /// <summary>
@@ -92,15 +90,14 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         //On click navigates to Page1 which is the door game
         private void PAGE1_Click(object sender, RoutedEventArgs e)
         {
-            //kills the sensor
-            //this.sensorChooser.KinectChanged -= SensorChooserOnKinectChanged;
-            //this.sensorChooser.Stop();
             (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("cowTipMenu.xaml", UriKind.Relative);
         }
+
 
         //On click closes the application (don't need this/I was just testing)
         private void CLOSE_Click(object sender, RoutedEventArgs e)
         {
+            sensorChooser.Stop();
             Application.Current.ShutdownMode = ShutdownMode.OnExplicitShutdown;
             Application.Current.Shutdown();
         }
@@ -110,9 +107,6 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("game2Menu.xaml", UriKind.Relative);
         }
 
-        //private void GAME3_Click(object sender, RoutedEventArgs e)
-        //{
-        //    (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Game3.xaml", UriKind.Relative);
-        //}
+
     }
 }

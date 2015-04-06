@@ -13,5 +13,6 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
     /// </summary>
     public partial class App : Application
     {
+
     }
 }

@@ -24,8 +24,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         {
             InitializeComponent();
             this.WindowState = System.Windows.WindowState.Maximized;
-            this.WindowStyle = System.Windows.WindowStyle.ThreeDBorderWindow;
-
+            this.WindowStyle = System.Windows.WindowStyle.None;
 
             //Not sure what this does
             if (Generics.LoadingStatus == 0)

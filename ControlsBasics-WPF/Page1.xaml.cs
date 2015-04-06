@@ -16,13 +16,14 @@ using Microsoft.Kinect.Toolkit;
 using Microsoft.Kinect.Toolkit.Controls;
 using System.Timers;
 using System.Diagnostics;
+using System.Windows.Media.Animation;
 
 namespace Microsoft.Samples.Kinect.ControlsBasics
 {
     /// <summary>
     /// Interaction logic for Page1.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class TipTheCow : Page
     {
         //public static readonly DependencyProperty PageLeftEnabledProperty = DependencyProperty.Register(
         //   "PageLeftEnabled", typeof(bool), typeof(MainWindow), new PropertyMetadata(false));
@@ -37,33 +38,30 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         //private readonly KinectSensorChooser sensorChooser;
 
         //   private int count = 0;
-        private System.Media.SoundPlayer startSound = new System.Media.SoundPlayer(@"..\Moo.wav");
+        private System.Media.SoundPlayer startSound = new System.Media.SoundPlayer(@"Moo.wav");
         private int number_of_cows = new int();
         private int cowCounter = new int();
         private Stopwatch sw = new Stopwatch();
         private TimeSpan ts = new TimeSpan();
+        private Label tipped_tracker = new Label();
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class. 
         /// </summary>
-        public Page1(int number_of_cows_)
+        public TipTheCow(int number_of_cows_)
         {
-            
             this.InitializeComponent();
             number_of_cows = number_of_cows_;
             cowCounter = 0;
-            sw.Start();
-            // initialize the sensor chooser and UI
-            //this.sensorChooser = new KinectSensorChooser();
-            //this.sensorChooser.KinectChanged += SensorChooserOnKinectChanged;
-            //this.sensorChooserUi.KinectSensorChooser = this.sensorChooser;
-            //this.sensorChooser.Start();
 
-         
-
-            // Bind the sensor chooser's current sensor to the KinectRegion
-            var regionSensorBinding = new Binding("Kinect") { Source = MainMenu.sensorChooser };
-            BindingOperations.SetBinding(this.kinectRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
-          
+            tipped_tracker.FontFamily = new FontFamily("Arial");
+            tipped_tracker.FontWeight = FontWeights.DemiBold;
+            tipped_tracker.FontSize = 32;
+            tipped_tracker.Content = "Cows tipped: " + cowCounter;
+            tipped_tracker.Margin = new Thickness(0, 0, 900, 0);
+            tipped_tracker.Width = 260;
+            tipped_tracker.Height = 50;
+            this.TopGrid.Children.Add(tipped_tracker);
+            //this.t.Children.Add(tipped_tracker);
             var r = new Random();
 
             //var backHome = new KinectTileButton { Name = "BackHome", Content = "Back Home", Height = 50, Width = 200 };
@@ -79,16 +77,17 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             System.Windows.Media.Imaging.BitmapFrame temp = System.Windows.Media.Imaging.BitmapFrame.Create(streamInfo.Stream);
             var brush = new System.Windows.Media.ImageBrush();
             brush.ImageSource = temp;
+            //brush.Opacity = OpacityMask.
 
             button.Background = brush;
             button.Margin = new Thickness(r.Next(0,550), r.Next(0, 220),r.Next(0,550), r.Next(0, 220));
             button.Click += this.KinectTileButtonClick;
             
             this.kinectRegionGrid.Children.Add(button);
-                   
-            
+
+            sw.Start();
             // Bind listner to scrollviwer scroll position change, and check scroll viewer position
-            this.UpdatePagingButtonState();
+            //this.UpdatePagingButtonState();
             //scrollViewer.ScrollChanged += (o, e) => this.UpdatePagingButtonState();
         }
 
@@ -176,28 +175,39 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         }
 
         /// <summary>
-        /// Execute shutdown tasks
-        /// </summary>
-        /// <param name="sender">object sending the event</param>
-        /// <param name="e">event arguments</param>
-        //private void WindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
-        //{
-        //    this.sensorChooser.Stop();
-        //}
-
-        /// <summary>
         /// Handle a button click from the wrap panel.
         /// </summary>
         /// <param name="sender">Event sender</param>
         /// <param name="e">Event arguments</param>
         private void KinectTileButtonClick(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(number_of_cows);
+            //Console.WriteLine(number_of_cows);
             cowCounter++;
             //The way this will work is it will decrement the number of cows after the new button is made
             if (cowCounter < number_of_cows)
                 {
                     var button = (KinectTileButton)e.OriginalSource;
+
+                    tipped_tracker.Content = "Cows tipped: " + cowCounter;
+                    
+
+                    //DoubleAnimation myDoubleAnimation = new DoubleAnimation();
+                    //myDoubleAnimation.From = 1.0;
+                    //myDoubleAnimation.To = 0.0;
+                    //myDoubleAnimation.Duration = new Duration(TimeSpan.FromSeconds(5));
+                    //myDoubleAnimation.AutoReverse = true;
+                    //myDoubleAnimation.RepeatBehavior = !RepeatBehavior.Forever;
+
+                    //myStoryboard = new Storyboard();
+                    //myStoryboard.Children.Add(myDoubleAnimation);
+                    //Storyboard.SetTargetName(myDoubleAnimation, myRectangle.Name);
+                    //Storyboard.SetTargetProperty(myDoubleAnimation, new PropertyPath(Rectangle.OpacityProperty));
+
+                    //// Use the Loaded event to start the Storyboard.
+                    //myRectangle.Loaded += new RoutedEventHandler(myRectangleLoaded);
+                    //myPanel.Children.Add(myRectangle);
+                    //this.Content = myPanel;
+
                     //var old_thickness = button.Margin;
                     var r = new Random();
                     double left = r.Next(0, 1100);
@@ -212,10 +222,10 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             else
             {
                 sw.Stop();
-                Console.WriteLine("YOU WIN");
+                //Console.WriteLine("YOU WIN");
                 
                 ts = sw.Elapsed;
-                Console.WriteLine(ts);
+                //Console.WriteLine(ts);
                 this.NavigationService.Navigate(new cowTipWin(number_of_cows, ts));
                 //(Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
             }
@@ -254,24 +264,13 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
          //   this.PageRightEnabled = scrollViewer.HorizontalOffset < scrollViewer.ScrollableWidth - ScrollErrorMargin;
         }
 
-        //On click goes back to the main menu screen
-        private void BACKHOME_Click(object sender, RoutedEventArgs e)
-        {
-            //kills the sensor
-        //    this.sensorChooser.KinectChanged -= SensorChooserOnKinectChanged;
-          //  this.sensorChooser.Stop();
-            (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("MainMenu.xaml", UriKind.Relative);
-        }
-
         private void BackHomeButton_Click(object sender, RoutedEventArgs e)
         {
             sw.Stop();
+            startSound.Stop();
             (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("MainMenu.xaml", UriKind.Relative);
         }
-
-      
-       
     }
-        }
+}
     
 
