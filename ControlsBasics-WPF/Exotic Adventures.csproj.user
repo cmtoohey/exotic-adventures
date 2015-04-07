@@ -4,7 +4,7 @@
     <PublishUrlHistory>C:\Users\Owner\Desktop\Test\|C:\Users\Alison\Desktop\EECS481\</PublishUrlHistory>
     <InstallUrlHistory />
     <SupportUrlHistory />
-    <UpdateUrlHistory>http://localhost/ControlsBasics-WPF/</UpdateUrlHistory>
+    <UpdateUrlHistory />
     <BootstrapperUrlHistory />
     <ErrorReportUrlHistory />
     <FallbackCulture>en-US</FallbackCulture>
@@ -12,8 +12,5 @@
   </PropertyGroup>
   <PropertyGroup>
     <EnableSecurityDebugging>false</EnableSecurityDebugging>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ReferencePath>C:\Users\Owner\Desktop\EECS481\ControlsBasics-WPF\AnyCPU.Release\</ReferencePath>
   </PropertyGroup>
 </Project>
