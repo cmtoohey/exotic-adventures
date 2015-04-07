@@ -74,3 +74,4 @@ C:\Users\Owner\Desktop\EECS481\ControlsBasics-WPF\AnyCPU.Debug\Microsoft.Kinect.
 C:\Users\Owner\Desktop\EECS481\ControlsBasics-WPF\AnyCPU.Debug\Microsoft.Kinect.Toolkit.dll
 C:\Users\Owner\Desktop\EECS481\ControlsBasics-WPF\AnyCPU.Debug\KinectInteraction180_32.dll
 C:\Users\Owner\Desktop\EECS481\ControlsBasics-WPF\AnyCPU.Debug\KinectInteraction180_64.dll
+C:\Users\Owner\Desktop\EECS481\ControlsBasics-WPF\obj\Debug\exotic_adventures.TrustInfo.xml
