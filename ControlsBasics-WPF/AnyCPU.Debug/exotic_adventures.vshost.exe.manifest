@@ -48,14 +48,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="exotic_adventures.exe" size="4895744">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="exotic_adventures.exe" size="4897184">
       <assemblyIdentity name="exotic_adventures" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>0TUobtpY/XYeSjLVccUnhLnM9mk=</dsig:DigestValue>
+        <dsig:DigestValue>NC+RHXWPbLT7cqXcJgk8SLB6tP0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -102,6 +102,24 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>VYRtxkdNcxDh1p/d5X2QdJgrh6g=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="KinectInteraction180_32.dll" size="15442600">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>BOBF1o19sffw3WAa+Af1wrjBH9I=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="KinectInteraction180_64.dll" size="15443112">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>yjFjwJhczgkilG+wbALP0ZX6iRc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Moo.wav" size="465808">

@@ -17,6 +17,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms.Integration;
 using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Markup;
@@ -83,7 +84,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ControlsBasics-WPF;component/selectiondisplay.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/exotic_adventures;component/selectiondisplay.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\SelectionDisplay.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
