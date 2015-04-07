@@ -37,3 +37,4 @@ C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Release
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Release\exotic_adventures.exe
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\AnyCPU.Release\KinectInteraction180_32.dll
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\AnyCPU.Release\KinectInteraction180_64.dll
+C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Release\exotic_adventures.TrustInfo.xml
