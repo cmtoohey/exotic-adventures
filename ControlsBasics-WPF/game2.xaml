@@ -10,15 +10,15 @@
       d:DesignHeight="700" d:DesignWidth="1200"
 	Title="Page1">
 
-
+   
         <Grid>
         
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-       <k:KinectRegion x:Name="game2PlayRegion">
-                <Grid x:Name="game2PlayGrid" Grid.Row="0"  Margin="10 0 10 20">
+        <k:KinectRegion x:Name="game2PlayRegion">
+            <Grid x:Name="game2PlayGrid" Grid.Row="0"  Margin="10 0 10 20">
               
                     <k:KinectTileButton x:Name="BackHomeButton" Content="Back Home" Height="60" Margin="680,0,0,0" Background="#FF00EEFF" Click="BackHomeButton_Click" ></k:KinectTileButton>
                 <Image HorizontalAlignment="Left" VerticalAlignment="Bottom" Source="logo.jpg" Margin="0 0 0 4" Width="200" Height="100" >
@@ -32,12 +32,12 @@
                 <TextBlock HorizontalAlignment="Center" Margin="385,45,340,0" TextWrapping="Wrap" Text="Tip-The-Cow" VerticalAlignment="Bottom" Height="67" Width="447" FontSize="48" FontFamily="Showcard Gothic" Foreground="#FF0086FF"/>
             </Grid>
         </k:KinectRegion>
-
-            <Grid Grid.Row="1" x:Name="bottomGrid">
+    <Grid Grid.Row="1" x:Name="bottomGrid">
                 <Grid x:Name="game2SkeletonGrid" Margin="0,0,0,0" Background="#FF00EEFF">
+                    <Image Name="Image" Width="640" Height="480"/>
                 </Grid>
             </Grid>
-
     </Grid>
+
 
 </Page>
