@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Microsoft.Kinect;
 using Microsoft.Kinect.Toolkit;
 using Microsoft.Kinect.Toolkit.Controls;
+using System.Drawing;
 
 namespace Microsoft.Samples.Kinect.ControlsBasics
 {
@@ -22,16 +23,26 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
     /// </summary>
     public partial class game2 : Page
     {
+        KinectSensor kinect = null;
+        Skeleton[] skeletonData;
+
         public game2()
         {
             InitializeComponent();
-            var regionSensorBinding = new Binding("Kinect") { Source = MainMenu.sensorChooser };
-            BindingOperations.SetBinding(this.game2PlayRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
+            kinect = KinectSensor.KinectSensors.FirstOrDefault(s => s.Status == KinectStatus.Connected); // Get first Kinect Sensor
+            kinect.SkeletonStream.Enable(); // Enable skeletal tracking
+
+
         }
 
         private void BackHomeButton_Click(object sender, RoutedEventArgs e)
         {
             (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("MainMenu.xaml", UriKind.Relative);
         }
+
+
+
+
+
     }
 }
