@@ -277,15 +277,15 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             //this.DrawBone(skeleton, drawingContext, JointType.ElbowRight, JointType.WristRight);
             //this.DrawBone(skeleton, drawingContext, JointType.WristRight, JointType.HandRight);
 
-            // Left Leg
-            this.DrawBone(skeleton, drawingContext, JointType.HipLeft, JointType.KneeLeft);
-            this.DrawBone(skeleton, drawingContext, JointType.KneeLeft, JointType.AnkleLeft);
-            this.DrawBone(skeleton, drawingContext, JointType.AnkleLeft, JointType.FootLeft);
+            //// Left Leg
+            //this.DrawBone(skeleton, drawingContext, JointType.HipLeft, JointType.KneeLeft);
+            //this.DrawBone(skeleton, drawingContext, JointType.KneeLeft, JointType.AnkleLeft);
+            //this.DrawBone(skeleton, drawingContext, JointType.AnkleLeft, JointType.FootLeft);
 
-            // Right Leg
-            this.DrawBone(skeleton, drawingContext, JointType.HipRight, JointType.KneeRight);
-            this.DrawBone(skeleton, drawingContext, JointType.KneeRight, JointType.AnkleRight);
-            this.DrawBone(skeleton, drawingContext, JointType.AnkleRight, JointType.FootRight);
+            //// Right Leg
+            //this.DrawBone(skeleton, drawingContext, JointType.HipRight, JointType.KneeRight);
+            //this.DrawBone(skeleton, drawingContext, JointType.KneeRight, JointType.AnkleRight);
+            //this.DrawBone(skeleton, drawingContext, JointType.AnkleRight, JointType.FootRight);
  
             // Render Joints
             foreach (Joint joint in skeleton.Joints)
@@ -385,6 +385,11 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         private void BackHomeButton_Click(object sender, RoutedEventArgs e)
         {
             (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("MainMenu.xaml", UriKind.Relative);
+        }
+
+        private void handleJointMovement(Joint Head)
+        {
+            
         }
 
     }

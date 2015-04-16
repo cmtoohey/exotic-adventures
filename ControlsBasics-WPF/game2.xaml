@@ -28,7 +28,7 @@
                 </Image>
                 <k:KinectUserViewer k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="100" HorizontalAlignment="Center" VerticalAlignment="Top" />
                 <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi" />
-                <TextBlock HorizontalAlignment="Right" Margin="0 0 -1 0" VerticalAlignment="Bottom" Foreground="{StaticResource MediumGreyBrush}" FontSize="18">α</TextBlock>
+                <TextBlock HorizontalAlignment="Right" Margin="0 0 -1 0" VerticalAlignment="Bottom" Foreground="{StaticResource MediumGreyBrush}" FontSize="18"></TextBlock>
                 <TextBlock HorizontalAlignment="Center" Margin="385,45,340,0" TextWrapping="Wrap" Text="Tip-The-Cow" VerticalAlignment="Bottom" Height="67" Width="447" FontSize="48" FontFamily="Showcard Gothic" Foreground="#FF0086FF"/>
             </Grid>
         </k:KinectRegion>
