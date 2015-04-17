@@ -24,6 +24,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
     /// </summary>
     public partial class game2 : Page
     {
+        
         /// <summary>
         /// Width of output drawing
         /// </summary>
@@ -104,7 +105,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             this.imageSource = new DrawingImage(this.drawingGroup);
 
             // Display the drawing using our image control
-            Image.Source = this.imageSource;
+        //    Image.Source = this.imageSource;
 
             // Look through all sensors and start the first connected one.
             // This requires that a Kinect is connected at the time of app startup.
@@ -211,11 +212,25 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
 
             using (SkeletonFrame skeletonFrame = e.OpenSkeletonFrame())
             {
+
                 if (skeletonFrame != null)
                 {
                     skeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
                     skeletonFrame.CopySkeletonDataTo(skeletons);
-                   
+
+                    
+                    foreach (Skeleton skel in skeletons)
+                    {
+                      
+                        
+                        Canvas.SetLeft(headCircle, skel.Joints[JointType.Head].Position.X * 200);
+                        Canvas.SetTop(headCircle, skel.Joints[JointType.Head].Position.Y * 200);
+                        if (skel.Joints[JointType.Head].Position.X != 0 && skel.Joints[JointType.Head].Position.Y != 0)
+                        {
+                            handleJointMovement(skel.Joints[JointType.Head], skel.Joints[JointType.ShoulderLeft], 
+                                skel.Joints[JointType.ShoulderRight], skel.Joints[JointType.ShoulderCenter]);
+                        }
+                    }
                 }
             }
 
@@ -229,6 +244,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
                     foreach (Skeleton skel in skeletons)
                     {
                         RenderClippedEdges(skel, dc);
+                       
 
                         if (skel.TrackingState == SkeletonTrackingState.Tracked)
                         {
@@ -387,9 +403,32 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("MainMenu.xaml", UriKind.Relative);
         }
 
-        private void handleJointMovement(Joint Head)
+        private void handleJointMovement(Joint Head, Joint lShoulder, Joint rShoulder, Joint center)
         {
             
+
+            double left = distance(Head, lShoulder);
+            double right = distance(Head, rShoulder);
+            Console.WriteLine(left + " l");
+            Console.WriteLine(right + " r");
+        
+            if (left > right)
+            {
+                MessageBox.Show("lean to right");
+            }
+            if (right > left)
+            {
+                MessageBox.Show("lean to left");
+            }
+
+        }
+
+        private Double distance(Joint j1, Joint j2)
+        {
+            double d = 0;
+            d = Math.Sqrt((j1.Position.X * j2.Position.X) + (j1.Position.Y * j2.Position.Y));
+
+            return d;
         }
 
     }
