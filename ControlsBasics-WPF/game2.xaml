@@ -19,7 +19,6 @@
         </Grid.RowDefinitions>
         <k:KinectRegion x:Name="game2PlayRegion">
             <Grid x:Name="game2PlayGrid" Grid.Row="0"  Margin="10 0 10 20">
-
                 <k:KinectTileButton x:Name="BackHomeButton" Content="Back Home" Height="60" Margin="680,0,0,0" Background="#FF00EEFF" Click="BackHomeButton_Click" ></k:KinectTileButton>
                 <Image HorizontalAlignment="Left" VerticalAlignment="Bottom" Source="logo.jpg" Margin="0 0 0 4" Width="200" Height="100" >
                     <Image.OpacityMask>
@@ -28,8 +27,9 @@
                 </Image>
                 <k:KinectUserViewer k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="100" HorizontalAlignment="Center" VerticalAlignment="Top" />
                 <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi" />
+
                 <TextBlock HorizontalAlignment="Right" Margin="0 0 -1 0" VerticalAlignment="Bottom" Foreground="{StaticResource MediumGreyBrush}" FontSize="18"></TextBlock>
-                <TextBlock HorizontalAlignment="Center" Margin="385,45,340,0" TextWrapping="Wrap" Text="Game2" VerticalAlignment="Bottom" Height="67" Width="447" FontSize="48" FontFamily="Showcard Gothic" Foreground="#FF0086FF"/>
+                <TextBlock HorizontalAlignment="Center" Margin="389,0,600,0" TextWrapping="Wrap" Text="Game2" VerticalAlignment="Bottom" Height="67" Width="191" FontSize="48" FontFamily="Showcard Gothic" Foreground="#FF0086FF"/>
             </Grid>
         </k:KinectRegion>
 
@@ -38,8 +38,7 @@
                 <Canvas HorizontalAlignment="Left" Height="568" VerticalAlignment="Top" Width="1200">
                     <Ellipse x:Name="headCircle" Fill="#FF3C3C99" HorizontalAlignment="Left" Height="100" Stroke="Black" VerticalAlignment="Top" Width="100" Canvas.Left="565" Canvas.Top="108"/>
                 </Canvas>
-
-                <!--<Image Name="Image" Width="640" Height="480" Stretch="Fill"/>-->
+                <Image x:Name="Image" Margin="10,10,1085,482"/>
             </Grid>
         </Grid>
     </Grid>
