@@ -68,6 +68,9 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Coding4Fun.Kinect.Wpf">
+      <HintPath>..\..\..\..\Downloads\Coding4Fun.Kinect.Toolkit (1)\Coding4Fun.Kinect.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Kinect">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(KINECTSDK10_DIR)\Assemblies\Microsoft.Kinect.dll</HintPath>

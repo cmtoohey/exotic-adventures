@@ -10,7 +10,7 @@
     <framework targetVersion="4.0" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="exotic_adventures.exe.manifest" size="6034">
+    <dependentAssembly dependencyType="install" codebase="exotic_adventures.exe.manifest" size="7754">
       <assemblyIdentity name="exotic_adventures.exe" version="1.0.0.7" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
     </dependentAssembly>
   </dependency>

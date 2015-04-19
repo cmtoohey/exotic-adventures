@@ -15,6 +15,7 @@ using Microsoft.Kinect;
 using Microsoft.Kinect.Toolkit;
 using Microsoft.Kinect.Toolkit.Controls;
 using System.IO;
+using Coding4Fun.Kinect.Wpf;
 
 
 namespace Microsoft.Samples.Kinect.ControlsBasics
@@ -222,11 +223,12 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
                     foreach (Skeleton skel in skeletons)
                     {
                       
-                        
-                        Canvas.SetLeft(headCircle, skel.Joints[JointType.Head].Position.X * 200);
-                        Canvas.SetTop(headCircle, skel.Joints[JointType.Head].Position.Y * 200);
                         if (skel.Joints[JointType.Head].Position.X != 0 && skel.Joints[JointType.Head].Position.Y != 0)
                         {
+                            var scaledJoint = skel.Joints[JointType.Head].ScaleTo(1200, 600);
+
+                            Canvas.SetLeft(headCircle, scaledJoint.Position.X );
+                            Canvas.SetTop(headCircle, scaledJoint.Position.Y );
                             handleJointMovement(skel.Joints[JointType.Head], skel.Joints[JointType.ShoulderLeft], 
                                 skel.Joints[JointType.ShoulderRight], skel.Joints[JointType.ShoulderCenter]);
                         }

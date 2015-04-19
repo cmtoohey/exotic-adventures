@@ -78,3 +78,7 @@ C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\E
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\exotic_adventures.TrustInfo.xml
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\exotic_adventures.exe.manifest
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\exotic_adventures.application
+C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\Exotic Adventures.csproj.exotic_adventures.exe.config
+C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\exotic_adventures.exe.config
+C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\Coding4Fun.Kinect.Wpf.dll
+C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\Microsoft.Expression.Drawing.dll
