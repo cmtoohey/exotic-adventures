@@ -28,7 +28,7 @@
             </Grid>
         </k:KinectRegion>
         <Label Content="Exotic Adventures" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="474,472,0,0" Height="79" Width="462" FontSize="50" Foreground="#FFFFB300" FontWeight="Bold"/>
-        <Label Content="Push on a game to begin" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="461,551,0,0" Height="79" Width="466" FontSize="40" Foreground="#FFFFB300"/>
+        <Label Content="Push on a game with either hand to begin" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="330,551,0,0" Height="79" Width="835" FontSize="40" Foreground="#FFFFB300"/>
     </Grid>
     
 </Page>
