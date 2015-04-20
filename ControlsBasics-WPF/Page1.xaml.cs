@@ -50,7 +50,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         public TipTheCow(int number_of_cows_)
         {
             this.InitializeComponent();
-            var regionSensorBinding = new Binding("Kinect") { Source = MainMenu.sensorChooser };
+            var regionSensorBinding = new Binding("Kinect") { Source = Intro.sensorChooser };
             BindingOperations.SetBinding(this.kinectRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
 
             number_of_cows = number_of_cows_;
@@ -66,22 +66,11 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             this.TopGrid.Children.Add(tipped_tracker);
             //this.t.Children.Add(tipped_tracker);
             var r = new Random();
-         
-            var button = new KinectTileButton { Name = "Cow" };
-            //Changes the image background
-            Uri resourceUri = new Uri("Cow.jpg", UriKind.Relative);
-            System.Windows.Resources.StreamResourceInfo streamInfo = Application.GetResourceStream(resourceUri);
 
-            System.Windows.Media.Imaging.BitmapFrame temp = System.Windows.Media.Imaging.BitmapFrame.Create(streamInfo.Stream);
-            var brush = new System.Windows.Media.ImageBrush();
+            add_new_button(new KinectTileButton(),
+                                new Thickness(r.Next(0,550), r.Next(0, 220),
+                                    r.Next(0,550), r.Next(0, 220)));
 
-            brush.ImageSource = temp;
-
-            button.Background = brush;
-            button.Margin = new Thickness(r.Next(0,550), r.Next(0, 220),r.Next(0,550), r.Next(0, 220));
-            button.Click += this.KinectTileButtonClick;
-            
-            this.kinectRegionGrid.Children.Add(button);
 
             sw.Start();
             // Bind listner to scrollviwer scroll position change, and check scroll viewer position
@@ -89,87 +78,20 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             //scrollViewer.ScrollChanged += (o, e) => this.UpdatePagingButtonState();
         }
 
-     
-        /// <summary>
-        /// CLR Property Wrappers for PageLeftEnabledProperty
-        /// </summary>
-        //public bool PageLeftEnabled
-        //{
-        //    get
-        //    {
-        //        return (bool)GetValue(PageLeftEnabledProperty);
-        //    }
-
-        //    set
-        //    {
-        //        this.SetValue(PageLeftEnabledProperty, value);
-        //    }
-        //}
-
-        ///// <summary>
-        ///// CLR Property Wrappers for PageRightEnabledProperty
-        ///// </summary>
-        //public bool PageRightEnabled
-        //{
-        //    get
-        //    {
-        //        return (bool)GetValue(PageRightEnabledProperty);
-        //    }
-
-        //    set
-        //    {
-        //        this.SetValue(PageRightEnabledProperty, value);
-        //    }
-        //}
-
-        /// <summary>
-        /// Called when the KinectSensorChooser gets a new sensor
-        /// </summary>
-        /// <param name="sender">sender of the event</param>
-        /// <param name="args">event arguments</param>
-        private static void SensorChooserOnKinectChanged(object sender, KinectChangedEventArgs args)
+        private void add_new_button(KinectTileButton button, Thickness thickness)
         {
-            if (args.OldSensor != null)
-            {
-                try
-                {
-                    args.OldSensor.DepthStream.Range = DepthRange.Default;
-                    args.OldSensor.SkeletonStream.EnableTrackingInNearRange = false;
-                    args.OldSensor.DepthStream.Disable();
-                    args.OldSensor.SkeletonStream.Disable();
-                }
-                catch (InvalidOperationException)
-                {
-                    // KinectSensor might enter an invalid state while enabling/disabling streams or stream features.
-                    // E.g.: sensor might be abruptly unplugged.
-                }
-            }
+            Uri resourceUri = new Uri("Cow.jpg", UriKind.Relative);
+            System.Windows.Resources.StreamResourceInfo streamInfo = Application.GetResourceStream(resourceUri);
 
-            if (args.NewSensor != null)
-            {
-                try
-                {
-                    args.NewSensor.DepthStream.Enable(DepthImageFormat.Resolution640x480Fps30);
-                    args.NewSensor.SkeletonStream.Enable();
+            System.Windows.Media.Imaging.BitmapFrame img = System.Windows.Media.Imaging.BitmapFrame.Create(streamInfo.Stream);
+            var brush = new System.Windows.Media.ImageBrush();
 
-                    try
-                    {
-                        args.NewSensor.DepthStream.Range = DepthRange.Near;
-                        args.NewSensor.SkeletonStream.EnableTrackingInNearRange = true;
-                    }
-                    catch (InvalidOperationException)
-                    {
-                        // Non Kinect for Windows devices do not support Near mode, so reset back to default mode.
-                        args.NewSensor.DepthStream.Range = DepthRange.Default;
-                        args.NewSensor.SkeletonStream.EnableTrackingInNearRange = false;
-                    }
-                }
-                catch (InvalidOperationException)
-                {
-                    // KinectSensor might enter an invalid state while enabling/disabling streams or stream features.
-                    // E.g.: sensor might be abruptly unplugged.
-                }
-            }
+            brush.ImageSource = img;
+            button.Margin = thickness;
+            button.Click += this.KinectTileButtonClick;
+            button.MinHeight = 0;
+            button.Background = brush;
+            this.kinectRegionGrid.Children.Add(button);
         }
 
         /// <summary>
@@ -183,40 +105,41 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             cowCounter++;
             //The way this will work is it will decrement the number of cows after the new button is made
             if (cowCounter < number_of_cows)
-                {
-                    var button = (KinectTileButton)e.OriginalSource;
+            {
+                var button = (KinectTileButton)e.OriginalSource;
+                button.IsEnabled = false;
+                //button.Visibility = System.Windows.Visibility.Visible;
+                tipped_tracker.Content = "Cows tipped: " + cowCounter;
 
-                    tipped_tracker.Content = "Cows tipped: " + cowCounter;
-                    
+                DoubleAnimation myDoubleAnimation = new DoubleAnimation();
+                myDoubleAnimation.From = button.Height;
+                myDoubleAnimation.To = 0.0;
+                myDoubleAnimation.Duration = new Duration(TimeSpan.FromMilliseconds(1000));
+                //myDoubleAnimation.AutoReverse = true;
+                //myDoubleAnimation.RepeatBehavior = "1";
 
-                    //DoubleAnimation myDoubleAnimation = new DoubleAnimation();
-                    //myDoubleAnimation.From = 1.0;
-                    //myDoubleAnimation.To = 0.0;
-                    //myDoubleAnimation.Duration = new Duration(TimeSpan.FromSeconds(5));
-                    //myDoubleAnimation.AutoReverse = true;
-                    //myDoubleAnimation.RepeatBehavior = !RepeatBehavior.Forever;
+                var myStoryboard = new Storyboard();
+                myStoryboard.Children.Add(myDoubleAnimation);
+                Storyboard.SetTarget(myDoubleAnimation, button);
+                Storyboard.SetTargetProperty(myDoubleAnimation, new PropertyPath(KinectTileButton.HeightProperty));
 
-                    //myStoryboard = new Storyboard();
-                    //myStoryboard.Children.Add(myDoubleAnimation);
-                    //Storyboard.SetTargetName(myDoubleAnimation, myRectangle.Name);
-                    //Storyboard.SetTargetProperty(myDoubleAnimation, new PropertyPath(Rectangle.OpacityProperty));
-
-                    //// Use the Loaded event to start the Storyboard.
-                    //myRectangle.Loaded += new RoutedEventHandler(myRectangleLoaded);
-                    //myPanel.Children.Add(myRectangle);
-                    //this.Content = myPanel;
+                myStoryboard.Begin();
+                 //   //// Use the Loaded event to start the Storyboard.
+                 //var myRectangle.Loaded += new RoutedEventHandler(myRectangleLoaded);
+                 //myPanel.Children.Add(myRectangle);
+                 //this.Content = myPanel;
 
                     //var old_thickness = button.Margin;
-                    var r = new Random();
-                    double left = r.Next(0, 1100);
-                    double top = r.Next(0, 400);
-                    double right = 1100 - left;
-                    double bottom = 400 - top;
-                    button.Margin = new Thickness(left, top, right, bottom);
-
-                    startSound.Play();
-                    e.Handled = true;
-                }
+                var r = new Random();
+                double left = r.Next(0, 1100);
+                double top = r.Next(0, 400);
+                double right = 1100 - left;
+                double bottom = 400 - top;
+                //button.Margin = new Thickness(left, top, right, bottom);
+                add_new_button(new KinectTileButton(), new Thickness(left, top, right, bottom));
+                startSound.Play();
+                e.Handled = true;
+            }
             else
             {
                 sw.Stop();
@@ -227,10 +150,6 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
                 this.NavigationService.Navigate(new cowTipWin(number_of_cows, ts));
                 //(Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
             }
-        }
-
-        private void MyElapsedMethod(object sender, ElapsedEventArgs cowE, KinectTileButton flippedCow) {
-            this.kinectRegionGrid.Children.Remove(flippedCow);
         }
 
         /// <summary>

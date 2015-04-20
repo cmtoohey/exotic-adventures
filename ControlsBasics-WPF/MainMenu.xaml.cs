@@ -23,17 +23,17 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
     public partial class MainMenu : Page
     {
 
-        public static KinectSensorChooser sensorChooser = new KinectSensorChooser();
+        //public static KinectSensorChooser sensorChooser = new KinectSensorChooser();
 
         public MainMenu()
         {
             InitializeComponent();
-            sensorChooser.KinectChanged += SensorChooserOnKinectChanged;
-            sensorChooserUi.KinectSensorChooser = sensorChooser;
-            sensorChooser.Start();
+            //sensorChooser.KinectChanged += SensorChooserOnKinectChanged;
+            //sensorChooserUi.KinectSensorChooser = sensorChooser;
+            //sensorChooser.Start();
 
             // Bind the sensor chooser's current sensor to the KinectRegion
-            var regionSensorBinding = new Binding("Kinect") { Source = sensorChooser };
+            var regionSensorBinding = new Binding("Kinect") { Source = Intro.sensorChooser };
             BindingOperations.SetBinding(this.kinectRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
         }
 
@@ -97,7 +97,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         //On click closes the application (don't need this/I was just testing)
         private void CLOSE_Click(object sender, RoutedEventArgs e)
         {
-            sensorChooser.Stop();
+            Intro.sensorChooser.Stop();
             Application.Current.ShutdownMode = ShutdownMode.OnExplicitShutdown;
             Application.Current.Shutdown();
         }

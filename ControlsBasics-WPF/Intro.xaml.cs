@@ -29,8 +29,8 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             InitializeComponent();
             sensorChooser.KinectChanged += SensorChooserOnKinectChanged;
             sensorChooserUi.KinectSensorChooser = sensorChooser;
-
             sensorChooser.Start();
+
             var regionSensorBinding = new Binding("Kinect") { Source = sensorChooser };
             BindingOperations.SetBinding(this.kinectRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
         }

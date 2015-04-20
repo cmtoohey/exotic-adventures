@@ -29,7 +29,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         public cowTipWin(int number_of_cows, TimeSpan ts)
         {
             InitializeComponent();
-            var regionSensorBinding = new Binding("Kinect") { Source = MainMenu.sensorChooser };
+            var regionSensorBinding = new Binding("Kinect") { Source = Intro.sensorChooser };
             BindingOperations.SetBinding(this.cowWinRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
 
             //cowTiming.Height = 90;

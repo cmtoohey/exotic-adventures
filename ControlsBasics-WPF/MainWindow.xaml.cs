@@ -30,7 +30,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             if (Generics.LoadingStatus == 0)
             {
                 //Sets MainMenu.xaml as the page for the main window
-                _mainFrame.Source = new Uri("MainMenu.xaml", UriKind.Relative);
+                _mainFrame.Source = new Uri("Intro.xaml", UriKind.Relative);
                 Generics.LoadingStatus = 1;
             }
 
