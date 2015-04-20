@@ -80,5 +80,6 @@ C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\e
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\exotic_adventures.application
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\Exotic Adventures.csproj.exotic_adventures.exe.config
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\exotic_adventures.exe.config
-C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\Coding4Fun.Kinect.Wpf.dll
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\Microsoft.Expression.Drawing.dll
+C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\game2Win.baml
+C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\game2Win.g.cs

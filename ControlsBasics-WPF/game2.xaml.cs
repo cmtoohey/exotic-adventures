@@ -16,6 +16,7 @@ using Microsoft.Kinect.Toolkit;
 using Microsoft.Kinect.Toolkit.Controls;
 using System.IO;
 using Coding4Fun.Kinect.Wpf;
+using System.Diagnostics;
 
 
 namespace Microsoft.Samples.Kinect.ControlsBasics
@@ -25,6 +26,11 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
     /// </summary>
     public partial class game2 : Page
     {
+
+        bool isLeft = true;
+        private Stopwatch gateTime = new Stopwatch();
+        private Stopwatch timer = new Stopwatch();
+        int number_of_minutes = 0;
         
         /// <summary>
         /// Width of output drawing
@@ -94,11 +100,15 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         /// <summary>
         /// Initializes a new instance of the MainWindow class.
         /// </summary>
-        public game2()
+        public game2(int number_of_minutes_)
         {
             InitializeComponent();
             var regionSensorBinding = new Binding("Kinect") { Source = MainMenu.sensorChooser };
             BindingOperations.SetBinding(this.game2PlayRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
+
+            number_of_minutes = number_of_minutes_;
+            timer.Start();
+            gateTime.Start();
 
             this.drawingGroup = new DrawingGroup();
 
@@ -226,7 +236,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
                       
                         if (skel.Joints[JointType.Head].Position.X != 0 && skel.Joints[JointType.Head].Position.Y != 0)
                         {
-                            var scaledJoint = skel.Joints[JointType.Head].ScaleTo(1200, 600);
+                            var scaledJoint = skel.Joints[JointType.Head].ScaleTo(1600, 776);
 
                             Canvas.SetLeft(headCircle, scaledJoint.Position.X );
                             Canvas.SetTop(headCircle, scaledJoint.Position.Y );
@@ -386,62 +396,77 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
 
         private void BackHomeButton_Click(object sender, RoutedEventArgs e)
         {
-            (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("MainMenu.xaml", UriKind.Relative);
             //if (null != this.sensor)
             //{
             //    this.sensor.Stop();
             //}
+            (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("MainMenu.xaml", UriKind.Relative);
+           
         }
 
-        private void handleHead(Ellipse circle)
-        {
-            Thickness height = circle.Margin;
-            double width = circle.Width;
-
-            //Console.WriteLine("height: " + circle.ActualHeight);
-            //Console.WriteLine("width: " + circle.ActualWidth);
-            //Console.WriteLine("get top : " + Canvas.GetTop(circle));
-            Console.WriteLine("Get Left : " + Canvas.GetLeft(circle));
-
-        }
-
+     
         private void handleJointMovement(Joint Head, Joint lShoulder, Joint rShoulder, Ellipse circle)
         {
+
+            var circleLeft = Canvas.GetLeft(circle);
+
+            if(timer.ElapsedMilliseconds >= (number_of_minutes * 60000)){
+                Console.WriteLine("game over");
+                timer.Reset();
+                timer.Stop();
+                gateTime.Reset();
+                gateTime.Stop();
+               
+                (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("game2Win.xaml", UriKind.Relative);
+             //   MessageBox.Show("game over");
+
+            }
+
+            else if (gateTime.ElapsedMilliseconds >= 5000)
+            {
+                Console.WriteLine("Timed out, you lose");
+                if (isLeft)
+                {
+                    isLeft = false;
+                    leftGate.Visibility = System.Windows.Visibility.Hidden;
+                    System.Threading.Thread.Sleep(500);
+                    rightGate.Visibility = System.Windows.Visibility.Visible;
+                }
+                else
+                {
+                    isLeft = true;
+                    rightGate.Visibility = System.Windows.Visibility.Hidden;
+                    System.Threading.Thread.Sleep(500);
+                    leftGate.Visibility = System.Windows.Visibility.Visible;
+                }
+                gateTime.Restart();
+            }
             
-
-            double left = distance(Head, lShoulder);
-            double right = distance(Head, rShoulder);
-       //     Console.WriteLine(left + " l");
-         //   Console.WriteLine(right + " r");
-            Console.WriteLine("duck : " + Canvas.GetTop(circle));
-        
-            if (left > right)
+            else if (Canvas.GetLeft(circle) < Canvas.GetLeft(leftGate) && isLeft)
             {
-               // MessageBox.Show("lean to right");
-                Console.WriteLine("lean left");
-                Console.WriteLine("Get Left : " + Canvas.GetLeft(circle));
-            }
-            if (right > left)
-            {
-              //  MessageBox.Show("lean to left");
-                Console.WriteLine("lean right");
-                Console.WriteLine("Get right : " + Canvas.GetLeft(circle));
+                gateTime.Restart();
+                isLeft = false;
+                leftGate.Visibility = System.Windows.Visibility.Hidden;
+                System.Threading.Thread.Sleep(500);
+                rightGate.Visibility = System.Windows.Visibility.Visible;
+             //   MessageBox.Show("left gate");
             }
 
+            else if (Canvas.GetLeft(circle) > Canvas.GetLeft(rightGate) && !isLeft)
+            {
+                gateTime.Restart();
+                isLeft = true;
+                rightGate.Visibility = System.Windows.Visibility.Hidden;
+                System.Threading.Thread.Sleep(500);
+                leftGate.Visibility = System.Windows.Visibility.Visible;
+                //   MessageBox.Show("right gate");
+
+            }
+
+
         }
 
-        private Double distance(Joint j1, Joint j2)
-        {
-            double d = 0;
-            d = Math.Sqrt((j1.Position.X * j2.Position.X) + (j1.Position.Y * j2.Position.Y));
-
-            return d;
-        }
-
-        private void KinectHoverButton_Click_1(object sender, RoutedEventArgs e)
-        {
-            Console.WriteLine("made it in the button");
-        }
+      
 
     }
     
