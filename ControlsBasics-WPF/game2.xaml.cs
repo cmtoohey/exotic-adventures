@@ -103,7 +103,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         public game2(int number_of_minutes_)
         {
             InitializeComponent();
-            var regionSensorBinding = new Binding("Kinect") { Source = MainMenu.sensorChooser };
+            var regionSensorBinding = new Binding("Kinect") { Source = Intro.sensorChooser };
             BindingOperations.SetBinding(this.game2PlayRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
 
             number_of_minutes = number_of_minutes_;
@@ -412,10 +412,13 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
 
             if(timer.ElapsedMilliseconds >= (number_of_minutes * 60000)){
                 Console.WriteLine("game over");
+
+                this.sensor.SkeletonFrameReady -= this.SensorSkeletonFrameReady;
                 timer.Reset();
                 timer.Stop();
                 gateTime.Reset();
                 gateTime.Stop();
+                
                
                 (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("game2Win.xaml", UriKind.Relative);
              //   MessageBox.Show("game over");

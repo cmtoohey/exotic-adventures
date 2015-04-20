@@ -51,9 +51,6 @@ C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debu
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\Microsoft.Kinect.Toolkit.Controls.pdb
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\Exotic Adventures.csprojResolveAssemblyReference.cache
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\Common\StandardStyles.baml
-C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\MainWindow.baml
-C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\SelectionDisplay.baml
-C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\App.baml
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\cowTipMenu.g.cs
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\cowTipWin.g.cs
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\game2.g.cs
@@ -83,3 +80,5 @@ C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debu
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\Microsoft.Expression.Drawing.dll
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\game2Win.baml
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\game2Win.g.cs
+C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\Intro.baml
+C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\Intro.g.cs

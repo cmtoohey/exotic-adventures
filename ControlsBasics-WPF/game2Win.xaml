@@ -1,0 +1,31 @@
+﻿<Page x:Class="Microsoft.Samples.Kinect.ControlsBasics.game2Win"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:k="http://schemas.microsoft.com/kinect/2013"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+	Title="game2Win">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Midwest.png" Opacity="0.78"/>
+        </Grid.Background>
+
+        <k:KinectUserViewer k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="100" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi" />
+        <TextBlock HorizontalAlignment="Right" Margin="0 0 -1 0" VerticalAlignment="Bottom" Foreground="{StaticResource MediumGreyBrush}" FontSize="18">α</TextBlock>
+
+
+        <k:KinectRegion  x:Name="game2WinRegion" RenderTransformOrigin="0.809,0.55">
+            <Grid x:Name="game2WinGrid" Margin="0,0,0,0" >
+                <TextBlock HorizontalAlignment="Center" Margin="400,60,408.667,489.333" TextWrapping="Wrap" Text="Time's Up!" VerticalAlignment="Center" Height="124" Width="496" FontSize="100" FontFamily="Showcard Gothic" Foreground="#FF8DC9FF" RenderTransformOrigin="2.14,1.696"/>
+
+                <k:KinectTileButton x:Name="goHome" Content="Return Home" Height="120" Canvas.Left="874"  Canvas.Top="154" Width="340" Click="homeClick" Background="#FFEDE610" FontSize="48" Margin="259,466,705.667,87.333" RenderTransformOrigin="0.439,0.562" Foreground="Black" FontWeight="Bold"/>
+                <k:KinectTileButton x:Name="gogame2Menu" Content="Play Again?" Height="120" Canvas.Left="874"  Canvas.Top="154" Width="340" Click="game2MenuClick" Background="#FFEDE610" FontSize="48" Margin="750,466,214.667,87.333" RenderTransformOrigin="0.439,0.562" Foreground="Black" FontWeight="Bold"/>
+
+            </Grid>
+        </k:KinectRegion>
+    </Grid>
+
+</Page>

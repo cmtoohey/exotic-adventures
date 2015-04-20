@@ -26,18 +26,31 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         public game2Menu()
         {
             InitializeComponent();
-            var regionSensorBinding = new Binding("Kinect") { Source = MainMenu.sensorChooser };
-            BindingOperations.SetBinding(this.game2Region, KinectRegion.KinectSensorProperty, regionSensorBinding);
+            var regionSensorBinding = new Binding("Kinect") { Source = Intro.sensorChooser };
+            BindingOperations.SetBinding(this.game2MenuRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
+        }
+
+        private void smallClick(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new game2(int.Parse(this.small.Content.ToString())));
+            //(Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
+        }
+
+        private void mediumClick(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new game2(int.Parse(this.medium.Content.ToString())));
+            //(Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
+        }
+
+        private void largeClick(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new game2(int.Parse(this.large.Content.ToString())));
+            //(Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
         }
 
         private void homeClick(object sender, RoutedEventArgs e)
         {
             (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("MainMenu.xaml", UriKind.Relative);
-        }
-
-        private void twentyClick(object sender, RoutedEventArgs e)
-        {
-            (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("game2.xaml", UriKind.Relative);
         }
     }
 }
