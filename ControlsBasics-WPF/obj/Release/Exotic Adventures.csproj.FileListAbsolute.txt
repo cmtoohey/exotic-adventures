@@ -76,3 +76,5 @@ C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Releas
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Release\exotic_adventures.TrustInfo.xml
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Release\exotic_adventures.exe.manifest
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Release\exotic_adventures.application
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\AnyCPU.Release\Coding4Fun.Kinect.Wpf.dll
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Release\GeneratedInternalTypeHelper.g.cs

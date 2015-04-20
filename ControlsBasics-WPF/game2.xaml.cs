@@ -219,7 +219,8 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
                     skeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
                     skeletonFrame.CopySkeletonDataTo(skeletons);
 
-                    
+                    //Setting up head circle & handling motion
+                    //----------------------------------------
                     foreach (Skeleton skel in skeletons)
                     {
                       
@@ -229,8 +230,11 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
 
                             Canvas.SetLeft(headCircle, scaledJoint.Position.X );
                             Canvas.SetTop(headCircle, scaledJoint.Position.Y );
+
+                            //handleHead(headCircle);
+
                             handleJointMovement(skel.Joints[JointType.Head], skel.Joints[JointType.ShoulderLeft], 
-                                skel.Joints[JointType.ShoulderRight], skel.Joints[JointType.ShoulderCenter]);
+                                skel.Joints[JointType.ShoulderRight], headCircle);
                         }
                     }
                 }
@@ -284,26 +288,6 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             this.DrawBone(skeleton, drawingContext, JointType.Spine, JointType.HipCenter);
             this.DrawBone(skeleton, drawingContext, JointType.HipCenter, JointType.HipLeft);
             this.DrawBone(skeleton, drawingContext, JointType.HipCenter, JointType.HipRight);
-
-            // Left Arm
-            //this.DrawBone(skeleton, drawingContext, JointType.ShoulderLeft, JointType.ElbowLeft);
-            //this.DrawBone(skeleton, drawingContext, JointType.ElbowLeft, JointType.WristLeft);
-            //this.DrawBone(skeleton, drawingContext, JointType.WristLeft, JointType.HandLeft);
-
-            //// Right Arm
-            //this.DrawBone(skeleton, drawingContext, JointType.ShoulderRight, JointType.ElbowRight);
-            //this.DrawBone(skeleton, drawingContext, JointType.ElbowRight, JointType.WristRight);
-            //this.DrawBone(skeleton, drawingContext, JointType.WristRight, JointType.HandRight);
-
-            //// Left Leg
-            //this.DrawBone(skeleton, drawingContext, JointType.HipLeft, JointType.KneeLeft);
-            //this.DrawBone(skeleton, drawingContext, JointType.KneeLeft, JointType.AnkleLeft);
-            //this.DrawBone(skeleton, drawingContext, JointType.AnkleLeft, JointType.FootLeft);
-
-            //// Right Leg
-            //this.DrawBone(skeleton, drawingContext, JointType.HipRight, JointType.KneeRight);
-            //this.DrawBone(skeleton, drawingContext, JointType.KneeRight, JointType.AnkleRight);
-            //this.DrawBone(skeleton, drawingContext, JointType.AnkleRight, JointType.FootRight);
  
             // Render Joints
             foreach (Joint joint in skeleton.Joints)
@@ -403,24 +387,45 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         private void BackHomeButton_Click(object sender, RoutedEventArgs e)
         {
             (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("MainMenu.xaml", UriKind.Relative);
+            //if (null != this.sensor)
+            //{
+            //    this.sensor.Stop();
+            //}
         }
 
-        private void handleJointMovement(Joint Head, Joint lShoulder, Joint rShoulder, Joint center)
+        private void handleHead(Ellipse circle)
+        {
+            Thickness height = circle.Margin;
+            double width = circle.Width;
+
+            //Console.WriteLine("height: " + circle.ActualHeight);
+            //Console.WriteLine("width: " + circle.ActualWidth);
+            //Console.WriteLine("get top : " + Canvas.GetTop(circle));
+            Console.WriteLine("Get Left : " + Canvas.GetLeft(circle));
+
+        }
+
+        private void handleJointMovement(Joint Head, Joint lShoulder, Joint rShoulder, Ellipse circle)
         {
             
 
             double left = distance(Head, lShoulder);
             double right = distance(Head, rShoulder);
-            Console.WriteLine(left + " l");
-            Console.WriteLine(right + " r");
+       //     Console.WriteLine(left + " l");
+         //   Console.WriteLine(right + " r");
+            Console.WriteLine("duck : " + Canvas.GetTop(circle));
         
             if (left > right)
             {
-                MessageBox.Show("lean to right");
+               // MessageBox.Show("lean to right");
+                Console.WriteLine("lean left");
+                Console.WriteLine("Get Left : " + Canvas.GetLeft(circle));
             }
             if (right > left)
             {
-                MessageBox.Show("lean to left");
+              //  MessageBox.Show("lean to left");
+                Console.WriteLine("lean right");
+                Console.WriteLine("Get right : " + Canvas.GetLeft(circle));
             }
 
         }
@@ -431,6 +436,11 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             d = Math.Sqrt((j1.Position.X * j2.Position.X) + (j1.Position.Y * j2.Position.Y));
 
             return d;
+        }
+
+        private void KinectHoverButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("made it in the button");
         }
 
     }

@@ -48,7 +48,19 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="exotic_adventures.exe" size="5989888">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Coding4Fun.Kinect.Wpf.dll" size="18944">
+      <assemblyIdentity name="Coding4Fun.Kinect.Wpf" version="1.7.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>qk6vUQZEp6zDtkEt4Qp5MKDDgRk=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="exotic_adventures.exe" size="7975936">
       <assemblyIdentity name="exotic_adventures" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
     </dependentAssembly>
   </dependency>

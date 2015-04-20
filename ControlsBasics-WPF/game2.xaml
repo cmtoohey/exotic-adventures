@@ -34,13 +34,18 @@
         </k:KinectRegion>
 
         <Grid Grid.Row="1" x:Name="bottomGrid">
-            <Grid x:Name="game2SkeletonGrid" Margin="0,0,0,0" Background="#FF00EEFF">
+            <Grid x:Name="game2SkeletonGrid" Margin="0,0,0,0">
+                <Grid.Background>
+                    <ImageBrush ImageSource="ski_mountain.jpg"/>
+                </Grid.Background>
                 <Canvas HorizontalAlignment="Left" Height="568" VerticalAlignment="Top" Width="1200">
                     <Ellipse x:Name="headCircle" Fill="#FF3C3C99" HorizontalAlignment="Left" Height="100" Stroke="Black" VerticalAlignment="Top" Width="100" Canvas.Left="565" Canvas.Top="108"/>
+                    <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Canvas.Left="315" Canvas.Top="231" Source="gate.gif"/>
                 </Canvas>
-                <Image x:Name="Image" Margin="10,10,1085,482"/>
+                <Image x:Name="Image" Margin="10,10,1090,466" Width="100" Height="100"/>
             </Grid>
         </Grid>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="-190,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
     </Grid>
 
 

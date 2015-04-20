@@ -69,7 +69,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Coding4Fun.Kinect.Wpf">
-      <HintPath>..\..\..\..\Downloads\Coding4Fun.Kinect.Toolkit (1)\Coding4Fun.Kinect.Wpf.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\Coding4Fun.Kinect.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Kinect">
       <SpecificVersion>False</SpecificVersion>
@@ -249,11 +249,13 @@
     <Resource Include="Cow_old.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="ski_mountain.jpg" />
     <Resource Include="World.png" />
     <Resource Include="Images\nice_grass.jpg" />
     <Resource Include="Cow.bmp" />
     <Resource Include="Midwest.png" />
     <Resource Include="Cow.jpg" />
+    <Resource Include="gate.gif" />
     <Content Include="KinectInteraction180_32.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
