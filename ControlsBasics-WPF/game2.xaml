@@ -19,33 +19,36 @@
         </Grid.RowDefinitions>
         <k:KinectRegion x:Name="game2PlayRegion">
             <Grid x:Name="game2PlayGrid" Grid.Row="0"  Margin="10 0 10 20">
-                <k:KinectTileButton x:Name="BackHomeButton" Content="Back Home" Height="60" Margin="680,0,0,0" Background="#FF00EEFF" Click="BackHomeButton_Click" ></k:KinectTileButton>
+
+                <Image x:Name="Image" Margin="730,0,350,4" Width="100" Height="100"/>
+
+                <k:KinectTileButton x:Name="BackHomeButton" Content="Back Home" Height="60" Margin="915,20,45,24" Background="#FF00EEFF" Click="BackHomeButton_Click" />
                 <Image HorizontalAlignment="Left" VerticalAlignment="Bottom" Source="logo.jpg" Margin="0 0 0 4" Width="200" Height="100" >
                     <Image.OpacityMask>
                         <ImageBrush ImageSource="logo.jpg" Stretch="Uniform"/>
                     </Image.OpacityMask>
                 </Image>
                 <k:KinectUserViewer k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="100" HorizontalAlignment="Center" VerticalAlignment="Top" />
-                <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi" />
+                <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" x:Name="sensorChooserUi" />
 
-                <TextBlock HorizontalAlignment="Right" Margin="0 0 -1 0" VerticalAlignment="Bottom" Foreground="{StaticResource MediumGreyBrush}" FontSize="18"></TextBlock>
-                <TextBlock HorizontalAlignment="Center" Margin="389,0,600,0" TextWrapping="Wrap" Text="Game2" VerticalAlignment="Bottom" Height="67" Width="191" FontSize="48" FontFamily="Showcard Gothic" Foreground="#FF0086FF"/>
+                <TextBlock HorizontalAlignment="Right" Margin="0 0 -1 0" VerticalAlignment="Bottom" Foreground="{StaticResource MediumGreyBrush}" FontSize="18"/>
+                <TextBlock HorizontalAlignment="Center" Margin="495,0,495,10" TextWrapping="Wrap" Text="Game2" VerticalAlignment="Bottom" Height="67" Width="190" FontSize="48" FontFamily="Showcard Gothic" Foreground="#FF0086FF"/>
+                <Label x:Name="score" Content="Score: " HorizontalAlignment="Left" FontSize="30" Margin="200,20,0,-2"  />
             </Grid>
         </k:KinectRegion>
 
         <Grid Grid.Row="1" x:Name="bottomGrid">
-            <Grid x:Name="game2SkeletonGrid" Margin="0,0,0,0">
+            <Grid x:Name="game2SkeletonGrid" Margin="0,0,10,10">
                 <Grid.Background>
                     <ImageBrush ImageSource="ski_mountain.jpg"/>
                 </Grid.Background>
-                <Canvas HorizontalAlignment="Left" Height="568" VerticalAlignment="Top" Width="1200">
+                <Canvas HorizontalAlignment="Left" VerticalAlignment="Top" Width="1200" Height="576">
                     <Ellipse x:Name="headCircle" Fill="#FF3C3C99" HorizontalAlignment="Left" Height="100" Stroke="Black" VerticalAlignment="Top" Width="100" Canvas.Left="565" Canvas.Top="108"/>
-                    <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Canvas.Left="315" Canvas.Top="231" Source="gate.gif"/>
+                    <Image x:Name="rightGate" Height="205"  Width="235" Source="flag.png" Canvas.Left="905" Canvas.Top="341" Visibility="Hidden"/>
+                    <Image x:Name="leftGate" Height="205"  Width="235" Source="flag.png" Canvas.Left="565" Canvas.Top="401"/>
                 </Canvas>
-                <Image x:Name="Image" Margin="10,10,1090,466" Width="100" Height="100"/>
             </Grid>
         </Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="-190,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
     </Grid>
 
 

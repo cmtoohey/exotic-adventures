@@ -60,7 +60,7 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="exotic_adventures.exe" size="5997056">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="exotic_adventures.exe" size="7995904">
       <assemblyIdentity name="exotic_adventures" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
     </dependentAssembly>
   </dependency>
