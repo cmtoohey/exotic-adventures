@@ -31,6 +31,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         private Stopwatch gateTime = new Stopwatch();
         private Stopwatch timer = new Stopwatch();
         int number_of_minutes = 0;
+        int gameScore = 0;
         
         /// <summary>
         /// Width of output drawing
@@ -105,6 +106,21 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             InitializeComponent();
             var regionSensorBinding = new Binding("Kinect") { Source = Intro.sensorChooser };
             BindingOperations.SetBinding(this.game2PlayRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
+
+            var r = new Random();
+            int random = r.Next(0, 50000);
+            if (random % 2 == 1)
+            {
+                isLeft = true;
+                leftGate.Visibility = System.Windows.Visibility.Visible;
+                rightGate.Visibility = System.Windows.Visibility.Hidden;
+            }
+            else
+            {
+                isLeft = false;
+                leftGate.Visibility = System.Windows.Visibility.Hidden;
+                rightGate.Visibility = System.Windows.Visibility.Visible;
+            }
 
             number_of_minutes = number_of_minutes_;
             timer.Start();
@@ -396,12 +412,12 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
 
         private void BackHomeButton_Click(object sender, RoutedEventArgs e)
         {
-            //if (null != this.sensor)
-            //{
-            //    this.sensor.Stop();
-            //}
-            (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("MainMenu.xaml", UriKind.Relative);
-           
+            this.sensor.SkeletonFrameReady -= this.SensorSkeletonFrameReady;
+            timer.Reset();
+            timer.Stop();
+            gateTime.Reset();
+            gateTime.Stop();
+            this.NavigationService.Navigate(new MainMenu());         
         }
 
      
@@ -409,18 +425,19 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         {
 
             var circleLeft = Canvas.GetLeft(circle);
-
+            
             if(timer.ElapsedMilliseconds >= (number_of_minutes * 60000)){
                 Console.WriteLine("game over");
+                Console.WriteLine(gameScore);
 
                 this.sensor.SkeletonFrameReady -= this.SensorSkeletonFrameReady;
                 timer.Reset();
                 timer.Stop();
                 gateTime.Reset();
                 gateTime.Stop();
-                
+
+                this.NavigationService.Navigate(new game2Win(gameScore));
                
-                (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("game2Win.xaml", UriKind.Relative);
              //   MessageBox.Show("game over");
 
             }
@@ -447,6 +464,8 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             
             else if (Canvas.GetLeft(circle) < Canvas.GetLeft(leftGate) && isLeft)
             {
+                gateTime.Stop();
+                handleScore();
                 gateTime.Restart();
                 isLeft = false;
                 leftGate.Visibility = System.Windows.Visibility.Hidden;
@@ -455,8 +474,10 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
              //   MessageBox.Show("left gate");
             }
 
-            else if (Canvas.GetLeft(circle) > Canvas.GetLeft(rightGate) && !isLeft)
+            else if (Canvas.GetLeft(circle) > (Canvas.GetLeft(rightGate)+150) && !isLeft)
             {
+                gateTime.Stop();
+                handleScore();
                 gateTime.Restart();
                 isLeft = true;
                 rightGate.Visibility = System.Windows.Visibility.Hidden;
@@ -465,11 +486,32 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
                 //   MessageBox.Show("right gate");
 
             }
-
-
         }
 
-      
+        private void handleScore()
+        {
+            if (gateTime.ElapsedMilliseconds <= 1000)
+            {
+                gameScore += (5 * 100);
+            }
+            else if (gateTime.ElapsedMilliseconds <= 2000)
+            {
+                gameScore += (4 * 100);
+            }
+            else if (gateTime.ElapsedMilliseconds <= 3000)
+            {
+                gameScore += (3 * 100);
+            }
+            else if (gateTime.ElapsedMilliseconds <= 4000)
+            {
+                gameScore += (2 * 100);
+            }
+            else
+            {
+                gameScore += (1 * 100);
+            }
+            score.Content = "Score: " + gameScore;
+        }
 
     }
     

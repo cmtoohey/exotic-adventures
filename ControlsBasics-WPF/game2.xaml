@@ -33,7 +33,7 @@
 
                 <TextBlock HorizontalAlignment="Right" Margin="0 0 -1 0" VerticalAlignment="Bottom" Foreground="{StaticResource MediumGreyBrush}" FontSize="18"/>
                 <TextBlock HorizontalAlignment="Center" Margin="495,0,495,10" TextWrapping="Wrap" Text="Game2" VerticalAlignment="Bottom" Height="67" Width="190" FontSize="48" FontFamily="Showcard Gothic" Foreground="#FF0086FF"/>
-                <Label x:Name="score" Content="Score: " HorizontalAlignment="Left" FontSize="30" Margin="200,20,0,-2"  />
+                <Label x:Name="score" Content="Score: 0" HorizontalAlignment="Left" FontSize="30" Margin="200,20,0,-2" Width="200"  />
             </Grid>
         </k:KinectRegion>
 
@@ -45,7 +45,7 @@
                 <Canvas HorizontalAlignment="Left" VerticalAlignment="Top" Width="1200" Height="576">
                     <Ellipse x:Name="headCircle" Fill="#FF3C3C99" HorizontalAlignment="Left" Height="100" Stroke="Black" VerticalAlignment="Top" Width="100" Canvas.Left="565" Canvas.Top="108"/>
                     <Image x:Name="rightGate" Height="205"  Width="235" Source="flag.png" Canvas.Left="905" Canvas.Top="341" Visibility="Hidden"/>
-                    <Image x:Name="leftGate" Height="205"  Width="235" Source="flag.png" Canvas.Left="565" Canvas.Top="401"/>
+                    <Image x:Name="leftGate" Height="205"  Width="235" Source="flag.png" Canvas.Left="565" Canvas.Top="401" Visibility="Hidden"/>
                 </Canvas>
             </Grid>
         </Grid>

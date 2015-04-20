@@ -60,7 +60,7 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="exotic_adventures.exe" size="7990272">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="exotic_adventures.exe" size="8000512">
       <assemblyIdentity name="exotic_adventures" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
     </dependentAssembly>
   </dependency>
@@ -91,15 +91,6 @@
       <assemblyIdentity name="Microsoft.Kinect.Toolkit.Interaction" version="1.8.0.0" publicKeyToken="31BF3856AD364E35" language="neutral" processorArchitecture="msil" />
     </dependentAssembly>
   </dependency>
-  <file name="exotic_adventures.exe.config" size="431">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>yWCV5eQY+Z8afoIoA9WG1FyDPsE=</dsig:DigestValue>
-    </hash>
-  </file>
   <file name="Images\Kinect.ico" size="31842">
     <hash>
       <dsig:Transforms>

@@ -32,15 +32,6 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             var regionSensorBinding = new Binding("Kinect") { Source = Intro.sensorChooser };
             BindingOperations.SetBinding(this.cowWinRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
 
-            //cowTiming.Height = 90;
-            //cowTiming.Margin = new Thickness(322, 189, 0, 0);
-            //string cowTipLine = ;
-            //cowTiming.Content = cowTipLine;
-            //cowTiming.Width = 595;
-            //cowTiming.FontSize = 60;
-
-            //this.cowWinGrid.Children.Add(cowTiming);
-
             gameStopwatch.Margin = new Thickness(30,10,0,0);
             gameStopwatch.Height= 250;
             gameStopwatch.Width = 700;
@@ -60,12 +51,12 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
 
         private void cowMenuClick(object sender, RoutedEventArgs e)
         {
-            (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("cowTipMenu.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(new cowTipMenu());  
         }
 
         private void homeClick(object sender, RoutedEventArgs e)
         {
-            (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("MainMenu.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(new MainMenu());  
         }
     }
 

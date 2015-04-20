@@ -37,7 +37,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
 
         void on_hover(object sender, RoutedEventArgs e)
         {
-            (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("MainMenu.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(new MainMenu());  
         }
 
         void Intro_Loaded(object sender, RoutedEventArgs e)

@@ -148,7 +148,6 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
                 ts = sw.Elapsed;
                 //Console.WriteLine(ts);
                 this.NavigationService.Navigate(new cowTipWin(number_of_cows, ts));
-                //(Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
             }
         }
 
@@ -185,7 +184,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         {
             sw.Stop();
             startSound.Stop();
-            (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("MainMenu.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(new MainMenu());  
         }
     }
 }

@@ -82,3 +82,11 @@ C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\g
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\game2Win.g.cs
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\Intro.baml
 C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\Intro.g.cs
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\Coding4Fun.Kinect.Wpf.dll
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\Microsoft.Expression.Drawing.dll
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\Microsoft.Kinect.Toolkit.pdb
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\AnyCPU.Debug\Microsoft.Kinect.Toolkit.Controls.pdb
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\game2Win.baml
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\Intro.baml
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\game2Win.g.cs
+C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\Intro.g.cs

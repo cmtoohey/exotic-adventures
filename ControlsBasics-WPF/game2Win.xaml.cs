@@ -22,22 +22,32 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
     /// </summary>
     public partial class game2Win : Page
     {
-        public game2Win()
+      
+        private Label gameScoreLabel = new Label();
+        public game2Win(int game_score)
         {
             InitializeComponent();
             var regionSensorBinding = new Binding("Kinect") { Source = Intro.sensorChooser };
             BindingOperations.SetBinding(this.game2WinRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
+           
 
+            gameScoreLabel.Margin = new Thickness(30, 10, 0, 0);
+            gameScoreLabel.Height = 250;
+            gameScoreLabel.Width = 700;
+            gameScoreLabel.Content = "Your score is " + game_score.ToString() + "!!";
+            gameScoreLabel.FontSize = 55;
+            gameScoreLabel.Foreground = System.Windows.Media.Brushes.LightBlue;
+            this.game2WinGrid.Children.Add(gameScoreLabel);
         }
 
         private void game2MenuClick(object sender, RoutedEventArgs e)
         {
-            (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("game2Menu.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(new game2Menu());  
         }
 
         private void homeClick(object sender, RoutedEventArgs e)
         {
-            (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("MainMenu.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(new MainMenu());  
         }
     }
 }

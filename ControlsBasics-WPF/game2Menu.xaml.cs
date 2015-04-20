@@ -33,24 +33,21 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         private void smallClick(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new game2(int.Parse(this.small.Content.ToString())));
-            //(Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
         }
 
         private void mediumClick(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new game2(int.Parse(this.medium.Content.ToString())));
-            //(Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
         }
 
         private void largeClick(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new game2(int.Parse(this.large.Content.ToString())));
-            //(Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("Page1.xaml", UriKind.Relative);
         }
 
         private void homeClick(object sender, RoutedEventArgs e)
         {
-            (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("MainMenu.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(new MainMenu());  
         }
     }
 }

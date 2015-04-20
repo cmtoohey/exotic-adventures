@@ -90,7 +90,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
         //On click navigates to Page1 which is the door game
         private void PAGE1_Click(object sender, RoutedEventArgs e)
         {
-            (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("cowTipMenu.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(new cowTipMenu());  
         }
 
 
@@ -104,7 +104,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
 
         private void GAME2_Click(object sender, RoutedEventArgs e)
         {
-            (Application.Current.MainWindow.FindName("_mainFrame") as Frame).Source = new Uri("game2Menu.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(new game2Menu());  
         }
 
         private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
