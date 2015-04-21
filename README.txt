@@ -1,4 +1,7 @@
-Exotic Adventures How To Use
+Exotic Adventures: 
+By: Alison Verge, Connor Toohey, and Devin Gurung
+
+How To Use
 
 Necessary Hardware: Microsoft Kinect v1.0
 
