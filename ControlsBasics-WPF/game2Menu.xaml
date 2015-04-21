@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="Midwest.png" Opacity="0.775"/>
+            <ImageBrush ImageSource="mountain.jpg" Opacity="0.775"/>
         </Grid.Background>
 
         <k:KinectUserViewer k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="100" HorizontalAlignment="Center" VerticalAlignment="Top" />
@@ -20,12 +20,12 @@
 
         <k:KinectRegion  x:Name="game2MenuRegion" RenderTransformOrigin="0.809,0.55">
             <Grid x:Name="game2MenuGrid" Margin="0,0,0,0" >
-                <TextBlock HorizontalAlignment="Center" Margin="63,0,58.667,387.333" TextWrapping="Wrap" Text="Welcome to " VerticalAlignment="Bottom" Height="276" Width="1183" FontSize="42" FontFamily="Showcard Gothic" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Center" Margin="63,-147,59,377" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="443" Width="1183" FontSize="42" FontFamily="Showcard Gothic" Foreground="#FF0A0A0A"><Run Text="Welcome to skiing! On the next screen, The circle represents your head and moving your head from side to side will control the game. Red flags appear on the left and right side of your head and you need to go around them by moving your head outside of the flag. You will earn more points the faster you go around the gates. "/><Run Text="Please Push the number of minutes you would like to ski for. "/></TextBlock>
 
-                <k:KinectTileButton x:Name="small" Content="1" Height="150" Canvas.Left="39" Canvas.Top="154" Width="150" Click="smallClick" Background="#FFF52222" FontSize="48" Margin="235,286,919.667,237.333" RenderTransformOrigin="-1.089,0.881" Foreground="Black" FontWeight="Bold"/>
-                <k:KinectTileButton x:Name="medium" Content="2" Height="150" Canvas.Left="150" Canvas.Top="154" Width="150" Click="mediumClick" Background="#FFF52222" FontSize="48" Margin="592,286,562.667,237.333" RenderTransformOrigin="-1.162,-1.246" Foreground="Black" FontWeight="Bold"/>
-                <k:KinectTileButton x:Name="large" Content="3" Height="150" Canvas.Left="150" Canvas.Top="154" Width="150" Click="largeClick" Background="#FFF52222" FontSize="48" Margin="958,286,196.667,237.333" RenderTransformOrigin="-1.162,-1.246" Foreground="Black" FontWeight="Bold"/>
-                <k:KinectTileButton x:Name="goHome" Content="Return Home" Height="120" Canvas.Left="874"  Canvas.Top="154" Width="340" Click="homeClick" Background="#FFEDE610" FontSize="48" Margin="478,476,486.667,77.333" RenderTransformOrigin="0.439,0.562" Foreground="Black" FontWeight="Bold"/>
+                <k:KinectTileButton x:Name="small" Content="1" Height="150" Canvas.Left="39" Canvas.Top="154" Width="150" Click="smallClick" Background="#FFF52222" FontSize="48" Margin="235,401,920,122" RenderTransformOrigin="-1.089,0.881" Foreground="Black" FontWeight="Bold"/>
+                <k:KinectTileButton x:Name="medium" Content="2" Height="150" Canvas.Left="150" Canvas.Top="154" Width="150" Click="mediumClick" Background="#FFF52222" FontSize="48" Margin="592,401,563,122" RenderTransformOrigin="-1.162,-1.246" Foreground="Black" FontWeight="Bold"/>
+                <k:KinectTileButton x:Name="large" Content="3" Height="150" Canvas.Left="150" Canvas.Top="154" Width="150" Click="largeClick" Background="#FFF52222" FontSize="48" Margin="958,401,197,122" RenderTransformOrigin="-1.162,-1.246" Foreground="Black" FontWeight="Bold"/>
+                <k:KinectTileButton x:Name="goHome" Content="Return Home" Height="120" Canvas.Left="874"  Canvas.Top="154" Width="340" Click="homeClick" Background="#FFEDE610" FontSize="48" Margin="478,591,487,-38" RenderTransformOrigin="0.439,0.562" Foreground="Black" FontWeight="Bold"/>
 
             </Grid>
         </k:KinectRegion>

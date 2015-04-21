@@ -6,12 +6,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Microsoft.Samples.Kinect.ControlsBasics"
       mc:Ignorable="d" 
-    Height="673.2" Width="1304.4" 
 	Title="cowTipWin">
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="Midwest.png" Opacity="0.78"/>
+            <ImageBrush ImageSource="farm.jpg" Opacity="0.78"/>
         </Grid.Background>
 
         <k:KinectUserViewer k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="100" HorizontalAlignment="Center" VerticalAlignment="Top" />
@@ -21,7 +20,7 @@
 
         <k:KinectRegion  x:Name="cowWinRegion" RenderTransformOrigin="0.809,0.55">
             <Grid x:Name="cowWinGrid" Margin="0,0,0,0" >
-                <TextBlock HorizontalAlignment="Center" Margin="400,60,408.667,489.333" TextWrapping="Wrap" Text="You Win!" VerticalAlignment="Center" Height="124" Width="496" FontSize="100" FontFamily="Showcard Gothic" Foreground="#FF8DC9FF" RenderTransformOrigin="2.14,1.696"/>
+                <TextBlock HorizontalAlignment="Center" Margin="400,60,408.667,489.333" TextWrapping="Wrap" Text="You Win!" VerticalAlignment="Center" Height="124" Width="496" FontSize="100" FontFamily="Showcard Gothic" Foreground="#FF111111" RenderTransformOrigin="2.14,1.696"/>
                
                 <k:KinectTileButton x:Name="goHome" Content="Return Home" Height="120" Canvas.Left="874"  Canvas.Top="154" Width="340" Click="homeClick" Background="#FFEDE610" FontSize="48" Margin="259,466,705.667,87.333" RenderTransformOrigin="0.439,0.562" Foreground="Black" FontWeight="Bold"/>
                 <k:KinectTileButton x:Name="goCowMenu" Content="Play Again?" Height="120" Canvas.Left="874"  Canvas.Top="154" Width="340" Click="cowMenuClick" Background="#FFEDE610" FontSize="48" Margin="750,466,214.667,87.333" RenderTransformOrigin="0.439,0.562" Foreground="Black" FontWeight="Bold"/>

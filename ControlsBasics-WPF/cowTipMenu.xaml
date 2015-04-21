@@ -4,13 +4,12 @@
         xmlns:k="http://schemas.microsoft.com/kinect/2013"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Microsoft.Samples.Kinect.ControlsBasics"
-    Height="673.2" Width="1304.4"   
+        xmlns:local="clr-namespace:Microsoft.Samples.Kinect.ControlsBasics"   
 	Title="Page">
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="Midwest.png" Opacity="0.775"/>
+            <ImageBrush ImageSource="farm.jpg" Opacity="0.775"/>
         </Grid.Background>
 
         <k:KinectUserViewer k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="100" HorizontalAlignment="Center" VerticalAlignment="Top" />
@@ -20,7 +19,7 @@
 
         <k:KinectRegion  x:Name="cowMenuRegion" RenderTransformOrigin="0.809,0.55">
             <Grid x:Name="cowMenuGrid" Margin="0,0,0,0" >
-                <TextBlock HorizontalAlignment="Center" Margin="63,0,58.667,387.333" TextWrapping="Wrap" Text="Welcome to Tip-The-Cow! Cows will appear on the following screen and the objective is to &quot;tip&quot; (push with either hand) the cows as fast as you can.  Select below the number of cows you'd like to tip. Please note you can only use one hand at a time." VerticalAlignment="Bottom" Height="276" Width="1183" FontSize="42" FontFamily="Showcard Gothic" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Center" Margin="63,-112,59,509" TextWrapping="Wrap" Text="Welcome to Tip-The-Cow! Cows will appear on the following screen and the objective is to &quot;tip&quot; (push with either hand) the cows as fast as you can.  Select below the number of cows you'd like to tip. Please note you can only use one hand at a time." VerticalAlignment="Bottom" Height="276" Width="1183" FontSize="42" FontFamily="Showcard Gothic" Foreground="#FF0A0909"/>
 
                 <k:KinectTileButton x:Name="small" Content="10" Height="150" Canvas.Left="39" Canvas.Top="154" Width="150" Click="smallClick" Background="#FFF52222" FontSize="48" Margin="235,286,919.667,237.333" RenderTransformOrigin="-1.089,0.881" Foreground="Black" FontWeight="Bold"/>
                 <k:KinectTileButton x:Name="medium" Content="20" Height="150" Canvas.Left="150" Canvas.Top="154" Width="150" Click="mediumClick" Background="#FFF52222" FontSize="48" Margin="592,286,562.667,237.333" RenderTransformOrigin="-1.162,-1.246" Foreground="Black" FontWeight="Bold"/>

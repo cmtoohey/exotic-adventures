@@ -31,12 +31,12 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             BindingOperations.SetBinding(this.game2WinRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
            
 
-            gameScoreLabel.Margin = new Thickness(30, 10, 0, 0);
+            gameScoreLabel.Margin = new Thickness(60, 10, 0, 0);
             gameScoreLabel.Height = 250;
             gameScoreLabel.Width = 700;
             gameScoreLabel.Content = "Your score is " + game_score.ToString() + "!!";
-            gameScoreLabel.FontSize = 55;
-            gameScoreLabel.Foreground = System.Windows.Media.Brushes.LightBlue;
+            gameScoreLabel.FontSize = 65;
+            gameScoreLabel.Foreground = System.Windows.Media.Brushes.Black;
             this.game2WinGrid.Children.Add(gameScoreLabel);
         }
 

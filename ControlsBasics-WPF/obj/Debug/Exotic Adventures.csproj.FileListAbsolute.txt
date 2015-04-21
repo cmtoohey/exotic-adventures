@@ -90,3 +90,6 @@ C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\Intro.baml
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\game2Win.g.cs
 C:\Users\Connor\Documents\GitHub\exotic-adventures\ControlsBasics-WPF\obj\Debug\Intro.g.cs
+C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\MainWindow.baml
+C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\SelectionDisplay.baml
+C:\Users\Alison\Desktop\EECS481\exotic-adventures\ControlsBasics-WPF\obj\Debug\App.baml

@@ -263,6 +263,8 @@
     <Resource Include="Cow_old.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="farm.jpg" />
+    <Resource Include="mountain.jpg" />
     <Resource Include="ski_mountain.jpg" />
     <Resource Include="World.png" />
     <Resource Include="Images\nice_grass.jpg" />

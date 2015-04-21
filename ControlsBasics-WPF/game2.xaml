@@ -20,8 +20,6 @@
         <k:KinectRegion x:Name="game2PlayRegion">
             <Grid x:Name="game2PlayGrid" Grid.Row="0"  Margin="10 0 10 20">
 
-                <Image x:Name="Image" Margin="730,0,350,4" Width="100" Height="100"/>
-
                 <k:KinectTileButton x:Name="BackHomeButton" Content="Back Home" Height="60" Margin="915,20,45,24" Background="#FF00EEFF" Click="BackHomeButton_Click" />
                 <Image HorizontalAlignment="Left" VerticalAlignment="Bottom" Source="logo.jpg" Margin="0 0 0 4" Width="200" Height="100" >
                     <Image.OpacityMask>
@@ -32,7 +30,7 @@
                 <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" x:Name="sensorChooserUi" />
 
                 <TextBlock HorizontalAlignment="Right" Margin="0 0 -1 0" VerticalAlignment="Bottom" Foreground="{StaticResource MediumGreyBrush}" FontSize="18"/>
-                <TextBlock HorizontalAlignment="Center" Margin="495,0,495,10" TextWrapping="Wrap" Text="Game2" VerticalAlignment="Bottom" Height="67" Width="190" FontSize="48" FontFamily="Showcard Gothic" Foreground="#FF0086FF"/>
+                <TextBlock HorizontalAlignment="Center" Margin="495,0,495,10" TextWrapping="Wrap" Text="Skiing" VerticalAlignment="Bottom" Height="67" Width="190" FontSize="48" FontFamily="Showcard Gothic" Foreground="#FF0086FF"/>
                 <Label x:Name="score" Content="Score: 0" HorizontalAlignment="Left" FontSize="30" Margin="200,20,0,-2" Width="200"  />
             </Grid>
         </k:KinectRegion>

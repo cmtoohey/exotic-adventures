@@ -24,7 +24,7 @@
             </Grid>
         </k:KinectRegion>
 
-        <TextBlock x:Name="Message" Foreground="White" Text="Hover over a country to see what you may discover..." Margin="295,630,-69.667,-170" FontFamily="SketchFlow Print" FontSize="22" Visibility="Visible" Width="600">
+        <TextBlock x:Name="Message" Foreground="White" Text="Hover over a country to see what you may discover..." Margin="295,645,-70,-185" FontFamily="SketchFlow Print" FontSize="22" Visibility="Visible" Width="600">
             <TextBlock.Triggers>
                 <EventTrigger  RoutedEvent="Window.Loaded">
 
